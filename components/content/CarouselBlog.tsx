@@ -11,7 +11,7 @@ export interface Item {
   image: LiveImage;
   alt: string;
   href: string;
-   /**
+  /**
    * @format textarea
    * @format html
    * @description text to be rendered */
@@ -58,11 +58,13 @@ function Section(
       >
         {title}
       </h2>
-      <div 
+      <div
         class="text-[12px] font-normal overflow-hidden mb-2"
         dangerouslySetInnerHTML={{ __html: description ?? "" }}
       />
-      <button class="bg-[#0F9B3E] bg-opacity-10 text-[#0F9B3E] uppercase rounded-lg w-full h-[34px]"><a href={href}>leia mais</a></button>
+      <button class="bg-[#0F9B3E] bg-opacity-10 text-[#0F9B3E] uppercase rounded-lg w-full h-[34px]">
+        <a href={href}>leia mais</a>
+      </button>
     </div>
   );
 }

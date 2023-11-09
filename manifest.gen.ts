@@ -27,20 +27,21 @@ import * as $$$$$$19 from "./sections/Layout/Flex.tsx";
 import * as $$$$$$20 from "./sections/Layout/Grid.tsx";
 import * as $$$$$$21 from "./sections/Gallery.tsx";
 import * as $$$$$$22 from "./sections/Petfarma/CarouselProducts.tsx";
-import * as $$$$$$23 from "./sections/Petfarma/CarouselBlog.tsx";
-import * as $$$$$$24 from "./sections/Petfarma/Carousel.tsx";
-import * as $$$$$$25 from "./sections/Theme/Theme.tsx";
-import * as $$$$$$26 from "./sections/Content/Faq.tsx";
-import * as $$$$$$27 from "./sections/Content/Benefits.tsx";
-import * as $$$$$$28 from "./sections/Content/Logos.tsx";
-import * as $$$$$$29 from "./sections/Content/Testimonials.tsx";
-import * as $$$$$$30 from "./sections/Header/Header.tsx";
-import * as $$$$$$31 from "./sections/Images/ShoppableBanner.tsx";
-import * as $$$$$$32 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$33 from "./sections/Images/ImageGallery.tsx";
-import * as $$$$$$34 from "./sections/Images/BannerGrid.tsx";
-import * as $$$$$$35 from "./sections/Category/CategoryList.tsx";
-import * as $$$$$$36 from "./sections/Category/CategoryBanner.tsx";
+import * as $$$$$$23 from "./sections/Petfarma/Footer.tsx";
+import * as $$$$$$24 from "./sections/Petfarma/CarouselBlog.tsx";
+import * as $$$$$$25 from "./sections/Petfarma/Carousel.tsx";
+import * as $$$$$$26 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$27 from "./sections/Content/Faq.tsx";
+import * as $$$$$$28 from "./sections/Content/Benefits.tsx";
+import * as $$$$$$29 from "./sections/Content/Logos.tsx";
+import * as $$$$$$30 from "./sections/Content/Testimonials.tsx";
+import * as $$$$$$31 from "./sections/Header/Header.tsx";
+import * as $$$$$$32 from "./sections/Images/ShoppableBanner.tsx";
+import * as $$$$$$33 from "./sections/Images/Carousel.tsx";
+import * as $$$$$$34 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$35 from "./sections/Images/BannerGrid.tsx";
+import * as $$$$$$36 from "./sections/Category/CategoryList.tsx";
+import * as $$$$$$37 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
@@ -50,19 +51,19 @@ const manifest = {
     "deco-sites/petfarma/loaders/List/Sections.tsx": $$$0,
   },
   "sections": {
-    "deco-sites/petfarma/sections/Category/CategoryBanner.tsx": $$$$$$36,
-    "deco-sites/petfarma/sections/Category/CategoryList.tsx": $$$$$$35,
-    "deco-sites/petfarma/sections/Content/Benefits.tsx": $$$$$$27,
-    "deco-sites/petfarma/sections/Content/Faq.tsx": $$$$$$26,
-    "deco-sites/petfarma/sections/Content/Logos.tsx": $$$$$$28,
-    "deco-sites/petfarma/sections/Content/Testimonials.tsx": $$$$$$29,
+    "deco-sites/petfarma/sections/Category/CategoryBanner.tsx": $$$$$$37,
+    "deco-sites/petfarma/sections/Category/CategoryList.tsx": $$$$$$36,
+    "deco-sites/petfarma/sections/Content/Benefits.tsx": $$$$$$28,
+    "deco-sites/petfarma/sections/Content/Faq.tsx": $$$$$$27,
+    "deco-sites/petfarma/sections/Content/Logos.tsx": $$$$$$29,
+    "deco-sites/petfarma/sections/Content/Testimonials.tsx": $$$$$$30,
     "deco-sites/petfarma/sections/Footer/Footer.tsx": $$$$$$0,
     "deco-sites/petfarma/sections/Gallery.tsx": $$$$$$21,
-    "deco-sites/petfarma/sections/Header/Header.tsx": $$$$$$30,
-    "deco-sites/petfarma/sections/Images/BannerGrid.tsx": $$$$$$34,
-    "deco-sites/petfarma/sections/Images/Carousel.tsx": $$$$$$32,
-    "deco-sites/petfarma/sections/Images/ImageGallery.tsx": $$$$$$33,
-    "deco-sites/petfarma/sections/Images/ShoppableBanner.tsx": $$$$$$31,
+    "deco-sites/petfarma/sections/Header/Header.tsx": $$$$$$31,
+    "deco-sites/petfarma/sections/Images/BannerGrid.tsx": $$$$$$35,
+    "deco-sites/petfarma/sections/Images/Carousel.tsx": $$$$$$33,
+    "deco-sites/petfarma/sections/Images/ImageGallery.tsx": $$$$$$34,
+    "deco-sites/petfarma/sections/Images/ShoppableBanner.tsx": $$$$$$32,
     "deco-sites/petfarma/sections/Layout/Container.tsx": $$$$$$17,
     "deco-sites/petfarma/sections/Layout/Flex.tsx": $$$$$$19,
     "deco-sites/petfarma/sections/Layout/Grid.tsx": $$$$$$20,
@@ -72,9 +73,10 @@ const manifest = {
     "deco-sites/petfarma/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$2,
     "deco-sites/petfarma/sections/Miscellaneous/CookieConsent.tsx": $$$$$$1,
     "deco-sites/petfarma/sections/Newsletter/Newsletter.tsx": $$$$$$14,
-    "deco-sites/petfarma/sections/Petfarma/Carousel.tsx": $$$$$$24,
-    "deco-sites/petfarma/sections/Petfarma/CarouselBlog.tsx": $$$$$$23,
+    "deco-sites/petfarma/sections/Petfarma/Carousel.tsx": $$$$$$25,
+    "deco-sites/petfarma/sections/Petfarma/CarouselBlog.tsx": $$$$$$24,
     "deco-sites/petfarma/sections/Petfarma/CarouselProducts.tsx": $$$$$$22,
+    "deco-sites/petfarma/sections/Petfarma/Footer.tsx": $$$$$$23,
     "deco-sites/petfarma/sections/Product/ImageGalleryFrontBack.tsx": $$$$$$11,
     "deco-sites/petfarma/sections/Product/ImageGallerySlider.tsx": $$$$$$7,
     "deco-sites/petfarma/sections/Product/NotFound.tsx": $$$$$$5,
@@ -86,7 +88,7 @@ const manifest = {
     "deco-sites/petfarma/sections/Product/Wishlist.tsx": $$$$$$10,
     "deco-sites/petfarma/sections/Social/InstagramPosts.tsx": $$$$$$15,
     "deco-sites/petfarma/sections/Social/WhatsApp.tsx": $$$$$$16,
-    "deco-sites/petfarma/sections/Theme/Theme.tsx": $$$$$$25,
+    "deco-sites/petfarma/sections/Theme/Theme.tsx": $$$$$$26,
   },
   "apps": {
     "deco-sites/petfarma/apps/decohub.ts": $$$$$$$$$$$0,

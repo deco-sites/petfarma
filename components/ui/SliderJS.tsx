@@ -87,6 +87,13 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   const goToItem = (index: number) => {
     const item = items.item(index);
 
+    dots?.forEach((elemento) => {
+      // Remove todas as classes do elemento
+      elemento.classList.remove("bg-primary");
+    });
+    const dot = dots?.item(index);
+    dot?.classList.add("bg-primary");
+
     if (!isHTMLElement(item)) {
       console.warn(
         `Element at index ${index} is not an html element. Skipping carousel`,

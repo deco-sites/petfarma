@@ -1,14 +1,17 @@
 import type { ComponentChildren, JSX } from "preact";
 
-function Dot({ index, children }: {
+interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   index: number;
-  children: ComponentChildren;
-}) {
+  children?: ComponentChildren;
+  class?: string;
+}
+
+function Dot({ index, children, ...otherProps }: Props) {
   return (
     <button
       data-dot={index}
       aria-label={`go to slider item ${index}`}
-      class="focus:outline-none group"
+      {...otherProps}
     >
       {children}
     </button>

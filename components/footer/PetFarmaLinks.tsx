@@ -31,13 +31,15 @@ export interface Props {
   footerItens: {
     description: string;
     images: {
-      image: LiveImage; 
+      image: LiveImage;
       alt: string;
-    }[]
-  }
+    }[];
+  };
 }
 
-function EmbellezeFaq({ section, social, payments, titleColor, footerItens }: Props) {
+function EmbellezeFaq(
+  { section, social, payments, titleColor, footerItens }: Props,
+) {
   return (
     <footer class="flex-wrap flex justify-between m-auto md:w-85 w-11/12 max-w-[1300px] flex-col md:flex-row py-[42px]">
       {section?.map(({ title, items }: ISection) => (
@@ -102,15 +104,18 @@ function EmbellezeFaq({ section, social, payments, titleColor, footerItens }: Pr
         )}
       </section>
       <div class="flex justify-between flex-wrap bg-white gap-4 w-full">
-          <span>{footerItens.description}</span>
-          <div class="flex justify-start gap-4 flex-wrap">{footerItens.images.map(({image, alt}) => <img
-                  class="rounded-lg flex align-middle justify-center"
-                  src={image}
-                  alt={alt}
-                  width="66px"
-                  height="50px"
-                /> )}
-          </div>
+        <span>{footerItens.description}</span>
+        <div class="flex justify-start gap-4 flex-wrap">
+          {footerItens.images.map(({ image, alt }) => (
+            <img
+              class="rounded-lg flex align-middle justify-center"
+              src={image}
+              alt={alt}
+              width="66px"
+              height="50px"
+            />
+          ))}
+        </div>
       </div>
     </footer>
   );

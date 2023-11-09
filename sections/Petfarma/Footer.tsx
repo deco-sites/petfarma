@@ -1,1 +1,1 @@
-export { default } from "$store/components/footer/PetFarmaLinks.tsx"
+export { default } from "$store/components/footer/PetFarmaLinks.tsx";

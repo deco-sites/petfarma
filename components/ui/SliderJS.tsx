@@ -137,13 +137,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     (elements) =>
       elements.forEach((item) => {
         const index = Number(item.target.getAttribute("data-slider-item")) || 0;
-        const dot = dots?.item(index);
-
-        if (item.isIntersecting) {
-          dot?.setAttribute("disabled", "");
-        } else {
-          dot?.removeAttribute("disabled");
-        }
 
         if (!infinite) {
           if (index === 0) {

@@ -32,7 +32,7 @@ function ProductDetails({ page, style }: Props) {
     ...breadcrumbList,
     itemListElement: breadcrumbList.itemListElement.slice(0, -1) ?? [],
     numberOfItems: breadcrumbList.itemListElement.length - 1,
-  }
+  };
 
   const eventItem = mapProductToAnalyticsItem({
     product,

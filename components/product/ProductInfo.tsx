@@ -169,18 +169,6 @@ function ProductInfo({ page, layout }: Props) {
           )
           : <OutOfStock productID={productID} />}
       </div>
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        {platform === "vtex" && (
-          <ShippingSimulation
-            items={[{
-              id: Number(product.sku),
-              quantity: 1,
-              seller: seller,
-            }]}
-          />
-        )}
-      </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6">
         <span class="text-sm">

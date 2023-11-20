@@ -41,7 +41,10 @@ export default function AddToCartButton(props: Props) {
   const btnProps = useAddToCart(props);
 
   return (
-    <Button {...btnProps} class="btn-primary">
+    <Button
+      {...btnProps}
+      class="btn-primary flex-grow h-[43px] rounded-lg min-h-[43px]"
+    >
       Adicionar à Sacola
     </Button>
   );

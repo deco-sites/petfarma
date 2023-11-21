@@ -45,7 +45,7 @@ export default function AddToCartButton(props: Props) {
       {...btnProps}
       class="btn-primary flex-grow h-[43px] rounded-lg min-h-[43px]"
     >
-      Adicionar à Sacola
+      COMPRAR
     </Button>
   );
 }

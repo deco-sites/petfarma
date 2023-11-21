@@ -34,7 +34,7 @@ function AddToCartButton(
         </button>
         {quantity.value}
         <button
-          class="rounded-full bg-primary bg-opacity-10 w-6 h-6 text-primary"
+          class="rounded-full bg-primary bg-opacity-10 w-6 h-6 text-primary font-semibold"
           onClick={() => {
             quantity.value++;
           }}

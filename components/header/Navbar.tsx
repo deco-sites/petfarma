@@ -49,22 +49,22 @@ function Navbar({ items, searchbar, logo }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
-        <div class="flex-none w-44">
+      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-full max-w-[1440px] px-10 h-[75px] md:mx-auto">
+        <div class="flex-none">
           {logo && (
             <a
               href="/"
               aria-label="Store logo"
-              class="block px-4 py-3 w-[160px]"
+              class="block w-full h-full"
             >
-              <Image src={logo.src} alt={logo.alt} width={126} height={16} />
+              <Image src={logo.src} alt={logo.alt} width={185} height={43} />
             </a>
           )}
         </div>
-        <div class="flex-auto flex justify-center">
+        {/* <div class="flex-auto flex justify-center">
           {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
+        </div> */}
+        <div class="flex-none flex items-center justify-end gap-2">
           <SearchButton />
           <Searchbar searchbar={searchbar} />
           <a
@@ -73,18 +73,6 @@ function Navbar({ items, searchbar, logo }: {
             aria-label="Log in"
           >
             <Icon id="User" size={24} strokeWidth={0.4} />
-          </a>
-          <a
-            class="btn btn-circle btn-sm btn-ghost"
-            href="/wishlist"
-            aria-label="Wishlist"
-          >
-            <Icon
-              id="Heart"
-              size={24}
-              strokeWidth={2}
-              fill="none"
-            />
           </a>
           {platform === "vtex" && <CartButtonVTEX />}
           {platform === "vnda" && <CartButtonVDNA />}

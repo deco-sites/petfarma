@@ -4,11 +4,14 @@ import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Alert from "./Alert.tsx";
+import { Props as AlertProps } from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
+import QuickSearch from "./QuickSearch.tsx";
+import { Props as QuickSearchProps } from "./QuickSearch.tsx";
 import { headerHeight } from "./constants.ts";
 
 export interface Props {
-  alerts: string[];
+  alerts: AlertProps;
 
   /** @title Search Bar */
   searchbar?: Omit<SearchbarProps, "platform">;
@@ -19,6 +22,8 @@ export interface Props {
    */
   navItems?: SiteNavigationElement[] | null;
 
+  quickSearchItems?: QuickSearchProps;
+
   /** @title Logo */
   logo?: { src: ImageWidget; alt: string };
 }
@@ -27,6 +32,7 @@ function Header({
   alerts,
   searchbar,
   navItems,
+  quickSearchItems,
   logo,
 }: Props) {
   const platform = usePlatform();
@@ -41,12 +47,13 @@ function Header({
           platform={platform}
         >
           <div class="bg-base-100 fixed w-full z-50">
-            <Alert alerts={alerts} />
+            <Alert {...alerts} />
             <Navbar
               items={items}
               searchbar={searchbar && { ...searchbar, platform }}
               logo={logo}
             />
+            <QuickSearch {...quickSearchItems} />
           </div>
         </Drawers>
       </header>

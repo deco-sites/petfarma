@@ -162,7 +162,7 @@ function BannerCarousel(props: Props) {
   return (
     <div
       id={id}
-      class="relative flex flex-col max-w-[1400px] w-full m-auto py-10 md:pt-28"
+      class="relative flex flex-col max-w-[1400px] w-full m-auto pt-24 md:py-10 md:pt-28"
     >
       <div class="relative h-fit">
         <Slider class="carousel carousel-center w-full col-span-full row-span-full gap-6">

@@ -22,9 +22,7 @@ function SearchbarModal({ searchbar }: Props) {
     //   open={displaySearchPopup.value}
     //   onClose={() => displaySearchPopup.value = false}
     // >
-    <div
-      class="top-0 container"
-    >
+    <div class="top-0 container">
       <Searchbar {...searchbar} />
     </div>
     // </Modal>

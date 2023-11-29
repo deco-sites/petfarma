@@ -17,7 +17,7 @@ export interface barColor {
 }
 
 export interface Props {
-  visible?: boolean; 
+  visible?: boolean;
   /** @format html */
   text?: string;
   layout?: barColor;
@@ -25,29 +25,42 @@ export interface Props {
   condition?: string;
 }
 
-function Alert({visible = true, text = '', layout,  href = '/', condition = 'Válido para Sul, Sudeste e Centro-Oeste'}: Props) {
+function Alert(
+  {
+    visible = true,
+    text = "",
+    layout,
+    href = "/",
+    condition = "Válido para Sul, Sudeste e Centro-Oeste",
+  }: Props,
+) {
   const id = useId();
 
   if (!visible) {
-    return null; 
+    return null;
   }
 
   const sliderStyle = {
-    backgroundColor: layout?.background || '#0F9B3E',
+    backgroundColor: layout?.background || "#0F9B3E",
   };
 
   return (
-    <div id={id}>
-      <div style={sliderStyle} class="flex justify-around carousel carousel-center w-screen bg-secondary gap-6 h-[40px]">
-          <div class="w-[250px]">
-            <img src='.../' alt="" />
-          </div>
-          <div class="carousel-item">
+    <div style={sliderStyle} id={id}>
+      <div class="max-w-[1440px] flex justify-center sm:justify-around carousel carousel-center w-screen bg-secondary sm:gap-6 h-[40px] mx-auto">
+        <div class="hidden sm:flex w-[250px]">
+          <img src=".../" alt="" />
+        </div>
+        <div class="carousel-item">
           <a href={href} class="flex items-center">
-              <span class="text-xs md:text-sm text-secondary-content flex justify-center items-center" dangerouslySetInnerHTML={{ __html: text }} />
+            <span
+              class="text-[10px] md:text-sm text-secondary-content flex justify-center items-center"
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
           </a>
-          </div>
-          <span class="text-xs md:text-sm text-secondary-content flex justify-center items-center">{condition}</span>
+        </div>
+        <span class="hidden sm:flex text-xs md:text-sm text-secondary-content justify-center items-center">
+          {condition}
+        </span>
       </div>
 
       {/* <SliderJS rootId={id} interval={interval && interval * 1e3} /> */}

@@ -22,7 +22,10 @@ function QuickSearch({ items = [], highlightedItem }: Props) {
     <div class="hidden md:flex flex-row justify-between items-center">
       <ul class="text-sm text-secondary-content flex flex-row justify-between items-center w-screen max-w-[1440px] h-[40px] mx-auto px-16 pb-[6px]">
         {items.map(({ label, href }, index) => (
-          <li class="px-4 py-2 text-black uppercase rounded-md hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E]" key={index}>
+          <li
+            class="px-4 py-2 text-black uppercase rounded-md hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E]"
+            key={index}
+          >
             <a class="text-sm" href={href}>
               {label}
             </a>

@@ -74,9 +74,7 @@ function Searchbar({
   }, [displaySearchPopup.value]);
 
   return (
-    <div
-      class="w-full items-center grid gap-8 sm:px-4 sm:py-6 md:p-0 overflow-y-hidden md:flex"
-      // style={{ gridTemplateRows: "min-content auto" }}
+    <div class="w-full items-center grid gap-8 sm:px-4 sm:py-6 md:p-0 overflow-y-hidden md:flex" // style={{ gridTemplateRows: "min-content auto" }}
     >
       <form id={id} action={action} class="join w-full h-[40px] pr-2">
         <input
@@ -101,7 +99,8 @@ function Searchbar({
           aria-controls="search-suggestion"
           autocomplete="off"
         />
-        {/* <Button
+        {
+          /* <Button
           type="submit"
           class="join-item btn-square"
           aria-label="Search"
@@ -111,7 +110,8 @@ function Searchbar({
           {loading.value
             ? <span class="loading loading-spinner loading-xs" />
             : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
-        </Button> */}
+        </Button> */
+        }
         <Button
           class="btn-circle btn-sm btn-ghost flex h-full border-x"
           aria-label="search icon button"
@@ -119,7 +119,12 @@ function Searchbar({
             displaySearchPopup.value = !displaySearchPopup.value;
           }}
         >
-          <Icon class="border-l" id="MagnifyingGlass" size={20} strokeWidth={0.1} />
+          <Icon
+            class="border-l"
+            id="MagnifyingGlass"
+            size={20}
+            strokeWidth={0.1}
+          />
         </Button>
         <Button
           type="button"

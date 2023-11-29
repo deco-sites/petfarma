@@ -75,25 +75,14 @@ function Searchbar({
 
   return (
     <div
-      class="w-full grid gap-8 px-4 py-6 overflow-y-hidden"
-      style={{ gridTemplateRows: "min-content auto" }}
+      class="w-full items-center grid gap-8 sm:px-4 sm:py-6 md:p-0 overflow-y-hidden md:flex"
+      // style={{ gridTemplateRows: "min-content auto" }}
     >
-      <form id={id} action={action} class="join">
-        <Button
-          type="submit"
-          class="join-item btn-square"
-          aria-label="Search"
-          for={id}
-          tabIndex={-1}
-        >
-          {loading.value
-            ? <span class="loading loading-spinner loading-xs" />
-            : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
-        </Button>
+      <form id={id} action={action} class="join w-full h-[40px] pr-2">
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input input-bordered join-item flex-grow"
+          class="input input-bordered join-item flex-grow border-0 h-full sm:h-[40px]"
           name={name}
           onInput={(e) => {
             const value = e.currentTarget.value;
@@ -112,9 +101,29 @@ function Searchbar({
           aria-controls="search-suggestion"
           autocomplete="off"
         />
+        {/* <Button
+          type="submit"
+          class="join-item btn-square"
+          aria-label="Search"
+          for={id}
+          tabIndex={-1}
+        >
+          {loading.value
+            ? <span class="loading loading-spinner loading-xs" />
+            : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
+        </Button> */}
+        <Button
+          class="btn-circle btn-sm btn-ghost flex h-full border-x"
+          aria-label="search icon button"
+          onClick={() => {
+            displaySearchPopup.value = !displaySearchPopup.value;
+          }}
+        >
+          <Icon class="border-l" id="MagnifyingGlass" size={20} strokeWidth={0.1} />
+        </Button>
         <Button
           type="button"
-          class="join-item btn-ghost btn-square hidden sm:inline-flex"
+          class="join-item btn-ghost btn-square hidden sm:inline-flex md:hidden"
           onClick={() => displaySearchPopup.value = false}
         >
           <Icon id="XMark" size={24} strokeWidth={2} />

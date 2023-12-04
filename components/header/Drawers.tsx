@@ -32,9 +32,17 @@ const Aside = (
 ) => (
   <div class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y w-[100vw] max-w-[425px]">
     <div class="flex justify-between items-center p-4">
-        <img src="/image/logo-mobile.png" alt="PETFARMA" width={154} height={35} />
+      <img
+        src="/image/logo-mobile.png"
+        alt="PETFARMA"
+        width={154}
+        height={35}
+      />
       {onClose && (
-        <Button class="btn btn-ghost bg-[#c829261a] w-[40px] p-[10px] rounded-md" onClick={onClose}>
+        <Button
+          class="btn btn-ghost bg-[#c829261a] w-[40px] p-[10px] rounded-md"
+          onClick={onClose}
+        >
           <Icon id="XMark" size={20} strokeWidth={2} />
         </Button>
       )}

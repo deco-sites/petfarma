@@ -21,14 +21,15 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
             style={{ top: "68px", left: "0px", marginTop: headerHeight }}
           >
             <div class="flex w-full max-w-[1440px] px-16 py-8 justify-between">
-            <ol class="items-start gap-4 max-h-[353px] grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full">
-            {children.map((node) => (
-              <li class="break-words"> {/* Utilize a classe 'break-words' para quebrar as palavras */}
-                <a class="hover:underline" href={node.url}>
-                  <span>{node.name}</span>
-                </a>
+              <ol class="items-start gap-4 max-h-[353px] grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full">
+                {children.map((node) => (
+                  <li class="break-words">
+                    <a class="hover:underline" href={node.url}>
+                      <span>{node.name}</span>
+                    </a>
 
-                {/* <ul class="flex flex-col gap-1 mt-4">
+                    {
+                      /* <ul class="flex flex-col gap-1 mt-4">
                   {node.children?.map((leaf) => (
                     <li>
                       <a class="hover:underline" href={leaf.url}>
@@ -36,25 +37,28 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
                       </a>
                     </li>
                   ))}
-                </ul> */}
-              </li>
-            ))}
-            <li>
-              <a class="text-sm text-[#0F9B3E]" href={item.url}>Ver tudo em {name}</a>
-            </li>
-          </ol>
+                </ul> */
+                    }
+                  </li>
+                ))}
+                <li>
+                  <a class="text-sm text-[#0F9B3E]" href={item.url}>
+                    Ver tudo em {name}
+                  </a>
+                </li>
+              </ol>
 
-            {image?.url && (
-              <Image
-                class="rounded-lg"
-                src={image.url}
-                alt={image.alternateName}
-                width={440}
-                height={290}
-                loading="lazy"
-              />
-            )}
-          </div>
+              {image?.url && (
+                <Image
+                  class="rounded-lg"
+                  src={image.url}
+                  alt={image.alternateName}
+                  width={440}
+                  height={290}
+                  loading="lazy"
+                />
+              )}
+            </div>
           </div>
         )}
     </li>

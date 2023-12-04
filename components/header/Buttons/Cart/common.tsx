@@ -43,7 +43,7 @@ function CartButton({ loading, currency, total, items }: Props) {
         <div class="flex items-center justify-center w-[35px] h-[35px] bg-[#0F9B3E1A] rounded-md">
           <Icon id="ShoppingCart" size={22} strokeWidth={2} />
         </div>
-        <span class="hidden sm:flex normal-case">Minha Sacola</span>
+        <span class="hidden lg:flex normal-case">Minha Sacola</span>
       </Button>
     </div>
   );

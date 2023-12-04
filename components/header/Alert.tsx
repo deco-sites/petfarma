@@ -46,8 +46,8 @@ function Alert(
 
   return (
     <div style={sliderStyle} id={id}>
-      <div class="max-w-[1440px] flex justify-center sm:justify-around carousel carousel-center w-screen bg-secondary sm:gap-6 h-[40px] mx-auto">
-        <div class="hidden sm:flex w-[250px]">
+      <div class="max-w-[1440px] flex justify-center sm:justify-around carousel carousel-center w-screen sm:gap-6 h-[40px] mx-auto">
+        <div class="hidden sm:flex">
           <img src=".../" alt="" />
         </div>
         <div class="carousel-item">

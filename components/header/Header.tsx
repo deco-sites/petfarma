@@ -22,7 +22,7 @@ export interface Props {
    */
   navItems?: SiteNavigationElement[] | null;
 
-  quickSearchItems?: QuickSearchProps;
+  // quickSearchItems?: QuickSearchProps;
 
   /** @title Logo */
   logo?: { src: ImageWidget; alt: string };
@@ -32,7 +32,6 @@ function Header({
   alerts,
   searchbar,
   navItems,
-  quickSearchItems,
   logo,
 }: Props) {
   const platform = usePlatform();
@@ -46,14 +45,14 @@ function Header({
           searchbar={searchbar}
           platform={platform}
         >
-          <div class="bg-base-100 fixed sm:w-full z-50">
+          <div class="bg-base-100 fixed lg:w-full z-50">
             <Alert {...alerts} />
             <Navbar
               items={items}
               searchbar={searchbar && { ...searchbar, platform }}
               logo={logo}
             />
-            <QuickSearch {...quickSearchItems} />
+            {/* <QuickSearch {...quickSearchItems} /> */}
           </div>
         </Drawers>
       </header>

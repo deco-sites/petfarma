@@ -7,6 +7,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import type { ComponentChildren } from "preact";
+import Image from "apps/website/components/Image.tsx";
 import { lazy, Suspense } from "preact/compat";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
@@ -29,14 +30,12 @@ const Aside = (
     children: ComponentChildren;
   },
 ) => (
-  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y max-w-[100vw]">
-    <div class="flex justify-between items-center">
-      <h1 class="px-4 py-3">
-        <span class="font-medium text-2xl">{title}</span>
-      </h1>
+  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y w-[100vw] max-w-[425px]">
+    <div class="flex justify-between items-center p-4">
+        <img src="/image/logo-mobile.png" alt="PETFARMA" width={154} height={35} />
       {onClose && (
-        <Button class="btn btn-ghost" onClick={onClose}>
-          <Icon id="XMark" size={24} strokeWidth={2} />
+        <Button class="btn btn-ghost bg-[#c829261a] w-[40px] p-[10px] rounded-md" onClick={onClose}>
+          <Icon id="XMark" size={20} strokeWidth={2} />
         </Button>
       )}
     </div>

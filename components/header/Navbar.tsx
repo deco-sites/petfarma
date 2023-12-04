@@ -24,9 +24,9 @@ function Navbar({ items, searchbar, logo }: {
   return (
     <>
       {/* Mobile Version */}
-      <div // style={{ height: navbarHeight }}
-       class="flex flex-col md:hidden">
-        <div class="flex flex-row justify-between items-center w-full p-4 sm:pl-2 sm:pr-6 gap-2">
+      <div style={{ height: navbarHeight }}
+       class="flex flex-col lg:hidden">
+        <div class="flex flex-row justify-between items-center w-full p-4 gap-2 bg-white">
           <MenuButton />
 
           {logo && (
@@ -46,14 +46,15 @@ function Navbar({ items, searchbar, logo }: {
             {platform === "vnda" && <CartButtonVDNA />}
           </div>
         </div>
-        <div class="flex-none flex items-center justify-end gap-2 w-full border rounded-md">
+        <div class="flex-none flex items-center justify-end gap-2 w-full border bg-white lg:rounded-md">
           <SearchButton />
           <Searchbar searchbar={searchbar} />
         </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-full max-w-[1440px] px-16 py-4 md:mx-auto">
+      <div class="hidden lg:flex flex-col">
+      <div class="flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-full max-w-[1440px] jutify-center xl:px-16 py-4 md:mx-auto">
         <div class="flex-none">
           {logo && (
             <a
@@ -65,11 +66,6 @@ function Navbar({ items, searchbar, logo }: {
             </a>
           )}
         </div>
-        {
-          /* <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div> */
-        }
         <div class="flex-none flex items-center justify-end gap-2 md:w-[48.8%] border rounded-md">
           <SearchButton />
           <Searchbar searchbar={searchbar} />
@@ -102,11 +98,16 @@ function Navbar({ items, searchbar, logo }: {
           </a>
           {platform === "vtex" && <CartButtonVTEX />}
           {platform === "vnda" && <CartButtonVDNA />}
-          {platform === "wake" && <CartButtonWake />}
-          {platform === "linx" && <CartButtonLinx />}
-          {platform === "shopify" && <CartButtonShopify />}
-          {platform === "nuvemshop" && <CartButtonNuvemshop />}
         </div>
+      </div>
+      <div class="flex-auto flex justify-center max-w-[1440px] h-[40px] mx-auto pb-[6px]">
+          {items.map((item) => <NavItem item={item} />)}
+          <li class="flex items-center w-auto px-4 py-2 text-white uppercase">
+            <a class="font-semibold px-4 py-2 bg-[#C82926] text-sm hover:scale-110 rounded-md" href="">
+              OUTLET
+            </a>
+          </li>
+      </div>
       </div>
     </>
   );

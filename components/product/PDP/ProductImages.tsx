@@ -60,8 +60,8 @@ function ProductImages({ page, style }: Props) {
           <Slider.Dot
             index={index}
             class={`${
-              index === 0 && "bg-primary"
-            } w-[42px] bg-gray-200 h-2 rounded-full`}
+              index === 0 && "bg-[#0F9B3E]"
+            } w-[42px] bg-[#0F9B3E] h-2 rounded-full`}
           />
         ))}
       </div>

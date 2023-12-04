@@ -43,7 +43,7 @@ function ProductDetails({ page, style }: Props) {
   });
 
   return (
-    <div class="flex flex-col" style={{ gap: style.gap }}>
+    <div class="flex flex-col max-w-[391px]" style={{ gap: style.gap }}>
       <h1>
         <span class="font-bold text-[20px]">{product.name}</span>
       </h1>
@@ -51,7 +51,7 @@ function ProductDetails({ page, style }: Props) {
       {/* Prices */}
       <div>
         <div class="flex flex-row gap-2 items-center">
-          <span class="font-bold text-xl text-[#449E6A]">
+          <span class="font-bold text-xl text-[#202020]">
             {formatPrice(price)}
           </span>
           <span class="line-through text-base-300 text-xs">
@@ -59,8 +59,8 @@ function ProductDetails({ page, style }: Props) {
           </span>
         </div>
         {price && (
-          <span class="text-sm text-base-300">
-            até 10x de <b>{formatPrice(price / 10)}</b> sem juros
+          <span class="text-sm text-[#00000099]">
+            até 10x de {formatPrice(price / 10)} sem juros
           </span>
         )}
       </div>

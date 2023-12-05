@@ -13,7 +13,7 @@ interface Props {
     };
     direction?: {
       /** @default col */
-      mobile?: "row" | "col";
+      mobile?: "row" | "col"| "col-reverse";
       /** @default row */
       desktop?: "row" | "col";
     };
@@ -40,7 +40,7 @@ function Flex({ layout, children }: Props) {
   return (
     <div
       class={clx(
-        "flex",
+        "flex py-10",
         flex.gap.mobile[layout?.gap?.mobile ?? "4"],
         flex.gap.desktop[layout?.gap?.desktop ?? "8"],
         flex.direction.mobile[layout?.direction?.mobile ?? "col"],

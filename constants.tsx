@@ -214,6 +214,7 @@ export const flex = {
     mobile: {
       "row": "flex-row",
       "col": "flex-col",
+      "col-reverse": "flex-col-reverse",
     },
     desktop: {
       "row": "sm:flex-row",

@@ -43,7 +43,7 @@ export default function AddToCartButton(props: Props) {
   return (
     <Button
       {...btnProps}
-      class="btn-primary flex-grow h-[43px] rounded-lg min-h-[43px]"
+      class="btn-primary bg-[#0F9B3E] border-[#17A087] hover:bg-[#0F9B3E] hover:opacity-80 flex-grow h-[43px] rounded-lg min-h-[43px]"
     >
       COMPRAR
     </Button>

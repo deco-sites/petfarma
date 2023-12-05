@@ -3,22 +3,30 @@ import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import Image from "apps/website/components/Image.tsx";
+import type { ImageWidget } from "apps/admin/widgets.ts";
 
 export interface Style {
   /** @description number in PX */
   gap: number;
 }
 
+export interface ImageProps {
+  /** @description (124px x 132px) */
+  src: ImageWidget;
+  alt: string;
+}
+
 export interface Props {
   page: ProductDetailsPage | null;
   style: Style;
+  stamp?: ImageProps;
 }
 
 const WIDTH = 446;
 const HEIGHT = 446;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
-function ProductImages({ page, style }: Props) {
+function ProductImages({ page, style, stamp }: Props) {
   if (page === null) {
     return <></>;
   }
@@ -51,6 +59,20 @@ function ProductImages({ page, style }: Props) {
                 preload={index === 0}
                 loading={index === 0 ? "eager" : "lazy"}
               />
+              {stamp && ( // Adicione essa condição para exibir o selo apenas na primeira imagem
+                <div
+                  class="absolute top-0 right-12 p-2"
+                  style={{ zIndex: 1 }}
+                >
+                  <Image
+                    src={stamp.src} // Certifique-se de que a propriedade src da prop stamp seja um objeto ImageWidget
+                    alt={stamp.alt}
+                    width={75}
+                    height={80}
+                    class="rounded-full"
+                  />
+                </div>
+              )}
             </Slider.Item>
           );
         })}

@@ -26,7 +26,7 @@ function AddToCartButton(
     <div class="flex justify-between items-center relative h-fit gap-4">
       <div class="border rounded-lg flex items-center justify-between flex-grow h-[43px] p-2 max-w-[116px]">
         <button
-          class="rounded-full bg-primary bg-opacity-10 w-6 h-6 text-primary"
+          class="rounded-full bg-[#E2F0E7] w-6 h-6 text-[#0F9B3E] hover:opacity-80"
           onClick={() =>
             quantity.value > 1 ? quantity.value-- : quantity.value = 1}
         >
@@ -34,7 +34,7 @@ function AddToCartButton(
         </button>
         {quantity.value}
         <button
-          class="rounded-full bg-primary bg-opacity-10 w-6 h-6 text-primary font-semibold"
+          class="rounded-full bg-[#E2F0E7] w-6 h-6 text-[#0F9B3E] font-normal hover:opacity-80"
           onClick={() => {
             quantity.value++;
           }}

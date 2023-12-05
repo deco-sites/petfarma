@@ -7,7 +7,7 @@ export interface Style {
   /** @description put the number in Pixels */
   subtitleFontSize?: number;
   /** @description put the number in Pixels */
-  textFontSize?: number; 
+  textFontSize?: number;
   /** @description number in PX */
   gap: number;
   /**
@@ -42,11 +42,17 @@ export interface Props {
   style: Style;
 }
 
-function BenefitComponent({ benefit, iconSize, subtitleFontSize, textFontSize }: { benefit: Benefit; iconSize?: number; subtitleFontSize?: number; textFontSize?: number }) {
+function BenefitComponent(
+  { benefit, iconSize, subtitleFontSize, textFontSize }: {
+    benefit: Benefit;
+    iconSize?: number;
+    subtitleFontSize?: number;
+    textFontSize?: number;
+  },
+) {
   if (!benefit) return null;
 
   return (
-
     <div class="flex flex-col gap-3 max-w-[172px]">
       {benefit.icon && (
         <div class="mr-2 text-[#0F9B3E]">
@@ -60,8 +66,14 @@ function BenefitComponent({ benefit, iconSize, subtitleFontSize, textFontSize }:
         </div>
       )}
       <div class="flex flex-col gap-2">
-        {benefit.label && <h4 style={{ fontSize: subtitleFontSize }} class="font-semibold">{benefit.label}</h4>}
-        {benefit.text && <p style={{ fontSize: textFontSize }}>{benefit.text}</p>}
+        {benefit.label && (
+          <h4 style={{ fontSize: subtitleFontSize }} class="font-semibold">
+            {benefit.label}
+          </h4>
+        )}
+        {benefit.text && (
+          <p style={{ fontSize: textFontSize }}>{benefit.text}</p>
+        )}
       </div>
     </div>
   );
@@ -82,12 +94,20 @@ function Benefits({ title, titleFontSize, benefits, style }: Props) {
       }}
     >
       <div class="flex flex-col text-start w-full gap-6">
-      <h3 style={{ fontSize: titleFontSize }} class="text-sm font-bold">{title}</h3>
-      <div class="flex flex-col md:flex-row justify-between gap-[42px]">
-        {benefits.map((benefit, index) => (
-          <BenefitComponent key={index} benefit={benefit} iconSize={iconSize} subtitleFontSize={subtitleFontSize} textFontSize={textFontSize}/>
-        ))}
-      </div>
+        <h3 style={{ fontSize: titleFontSize }} class="text-sm font-bold">
+          {title}
+        </h3>
+        <div class="flex flex-col md:flex-row justify-between gap-[42px]">
+          {benefits.map((benefit, index) => (
+            <BenefitComponent
+              key={index}
+              benefit={benefit}
+              iconSize={iconSize}
+              subtitleFontSize={subtitleFontSize}
+              textFontSize={textFontSize}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

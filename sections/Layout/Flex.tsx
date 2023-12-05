@@ -13,7 +13,7 @@ interface Props {
     };
     direction?: {
       /** @default col */
-      mobile?: "row" | "col"| "col-reverse";
+      mobile?: "row" | "col" | "col-reverse";
       /** @default row */
       desktop?: "row" | "col";
     };

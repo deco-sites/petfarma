@@ -39,17 +39,19 @@ function Flex({ layout, children }: Props) {
 
   return (
     <div
-      class={clx(
-        "flex",
-        flex.gap.mobile[layout?.gap?.mobile ?? "4"],
-        flex.gap.desktop[layout?.gap?.desktop ?? "8"],
-        flex.direction.mobile[layout?.direction?.mobile ?? "col"],
-        flex.direction.desktop[layout?.direction?.desktop ?? "row"],
-        flex.justify.mobile[layout?.justify?.mobile ?? "center"],
-        flex.justify.desktop[layout?.justify?.desktop ?? "center"],
-        flex.wrap.mobile[layout?.wrap?.mobile ?? "wrap"],
-        flex.wrap.desktop[layout?.wrap?.desktop ?? "wrap"],
-      )}
+      class={`${
+        clx(
+          "flex",
+          flex.gap.mobile[layout?.gap?.mobile ?? "4"],
+          flex.gap.desktop[layout?.gap?.desktop ?? "8"],
+          flex.direction.mobile[layout?.direction?.mobile ?? "col"],
+          flex.direction.desktop[layout?.direction?.desktop ?? "row"],
+          flex.justify.mobile[layout?.justify?.mobile ?? "center"],
+          flex.justify.desktop[layout?.justify?.desktop ?? "center"],
+          flex.wrap.mobile[layout?.wrap?.mobile ?? "wrap"],
+          flex.wrap.desktop[layout?.wrap?.desktop ?? "wrap"],
+        )
+      } w-11/12 m-auto max-width-[1300px]`}
     >
       {items}
     </div>

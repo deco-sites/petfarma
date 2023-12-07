@@ -27,30 +27,31 @@ import * as $$$$$$19 from "./sections/Miscellaneous/CampaignTimer.tsx";
 import * as $$$$$$20 from "./sections/Miscellaneous/CookieConsent.tsx";
 import * as $$$$$$21 from "./sections/Newsletter/Newsletter.tsx";
 import * as $$$$$$22 from "./sections/Petfarma/Benefits.tsx";
-import * as $$$$$$23 from "./sections/Petfarma/Carousel.tsx";
-import * as $$$$$$24 from "./sections/Petfarma/CarouselBeneficios.tsx";
-import * as $$$$$$25 from "./sections/Petfarma/CarouselBlog.tsx";
-import * as $$$$$$26 from "./sections/Petfarma/CarouselProducts.tsx";
-import * as $$$$$$27 from "./sections/Petfarma/Footer.tsx";
-import * as $$$$$$28 from "./sections/Petfarma/Image.tsx";
-import * as $$$$$$29 from "./sections/Petfarma/Images.tsx";
-import * as $$$$$$30 from "./sections/Petfarma/MainBanner.tsx";
-import * as $$$$$$31 from "./sections/Petfarma/ProductDetails.tsx";
-import * as $$$$$$32 from "./sections/Petfarma/ProductImages.tsx";
-import * as $$$$$$33 from "./sections/Petfarma/ProductInfo.tsx";
-import * as $$$$$$34 from "./sections/Petfarma/Text.tsx";
-import * as $$$$$$35 from "./sections/Product/ImageGalleryFrontBack.tsx";
-import * as $$$$$$36 from "./sections/Product/ImageGallerySlider.tsx";
-import * as $$$$$$37 from "./sections/Product/NotFound.tsx";
-import * as $$$$$$38 from "./sections/Product/NotFoundChallenge.tsx";
-import * as $$$$$$39 from "./sections/Product/ProductInfo.tsx";
-import * as $$$$$$40 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$41 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$42 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$43 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$44 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$45 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$46 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$23 from "./sections/Petfarma/BuyWith.tsx";
+import * as $$$$$$24 from "./sections/Petfarma/Carousel.tsx";
+import * as $$$$$$25 from "./sections/Petfarma/CarouselBeneficios.tsx";
+import * as $$$$$$26 from "./sections/Petfarma/CarouselBlog.tsx";
+import * as $$$$$$27 from "./sections/Petfarma/CarouselProducts.tsx";
+import * as $$$$$$28 from "./sections/Petfarma/Footer.tsx";
+import * as $$$$$$29 from "./sections/Petfarma/Image.tsx";
+import * as $$$$$$30 from "./sections/Petfarma/Images.tsx";
+import * as $$$$$$31 from "./sections/Petfarma/MainBanner.tsx";
+import * as $$$$$$32 from "./sections/Petfarma/ProductDetails.tsx";
+import * as $$$$$$33 from "./sections/Petfarma/ProductImages.tsx";
+import * as $$$$$$34 from "./sections/Petfarma/ProductInfo.tsx";
+import * as $$$$$$35 from "./sections/Petfarma/Text.tsx";
+import * as $$$$$$36 from "./sections/Product/ImageGalleryFrontBack.tsx";
+import * as $$$$$$37 from "./sections/Product/ImageGallerySlider.tsx";
+import * as $$$$$$38 from "./sections/Product/NotFound.tsx";
+import * as $$$$$$39 from "./sections/Product/NotFoundChallenge.tsx";
+import * as $$$$$$40 from "./sections/Product/ProductInfo.tsx";
+import * as $$$$$$41 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$42 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$43 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$44 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$45 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$46 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$47 from "./sections/Theme/Theme.tsx";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
@@ -83,30 +84,31 @@ const manifest = {
     "deco-sites/petfarma/sections/Miscellaneous/CookieConsent.tsx": $$$$$$20,
     "deco-sites/petfarma/sections/Newsletter/Newsletter.tsx": $$$$$$21,
     "deco-sites/petfarma/sections/Petfarma/Benefits.tsx": $$$$$$22,
-    "deco-sites/petfarma/sections/Petfarma/Carousel.tsx": $$$$$$23,
-    "deco-sites/petfarma/sections/Petfarma/CarouselBeneficios.tsx": $$$$$$24,
-    "deco-sites/petfarma/sections/Petfarma/CarouselBlog.tsx": $$$$$$25,
-    "deco-sites/petfarma/sections/Petfarma/CarouselProducts.tsx": $$$$$$26,
-    "deco-sites/petfarma/sections/Petfarma/Footer.tsx": $$$$$$27,
-    "deco-sites/petfarma/sections/Petfarma/Image.tsx": $$$$$$28,
-    "deco-sites/petfarma/sections/Petfarma/Images.tsx": $$$$$$29,
-    "deco-sites/petfarma/sections/Petfarma/MainBanner.tsx": $$$$$$30,
-    "deco-sites/petfarma/sections/Petfarma/ProductDetails.tsx": $$$$$$31,
-    "deco-sites/petfarma/sections/Petfarma/ProductImages.tsx": $$$$$$32,
-    "deco-sites/petfarma/sections/Petfarma/ProductInfo.tsx": $$$$$$33,
-    "deco-sites/petfarma/sections/Petfarma/Text.tsx": $$$$$$34,
-    "deco-sites/petfarma/sections/Product/ImageGalleryFrontBack.tsx": $$$$$$35,
-    "deco-sites/petfarma/sections/Product/ImageGallerySlider.tsx": $$$$$$36,
-    "deco-sites/petfarma/sections/Product/NotFound.tsx": $$$$$$37,
-    "deco-sites/petfarma/sections/Product/NotFoundChallenge.tsx": $$$$$$38,
-    "deco-sites/petfarma/sections/Product/ProductInfo.tsx": $$$$$$39,
-    "deco-sites/petfarma/sections/Product/ProductShelf.tsx": $$$$$$40,
-    "deco-sites/petfarma/sections/Product/ProductShelfTabbed.tsx": $$$$$$41,
-    "deco-sites/petfarma/sections/Product/SearchResult.tsx": $$$$$$42,
-    "deco-sites/petfarma/sections/Product/Wishlist.tsx": $$$$$$43,
-    "deco-sites/petfarma/sections/Social/InstagramPosts.tsx": $$$$$$44,
-    "deco-sites/petfarma/sections/Social/WhatsApp.tsx": $$$$$$45,
-    "deco-sites/petfarma/sections/Theme/Theme.tsx": $$$$$$46,
+    "deco-sites/petfarma/sections/Petfarma/BuyWith.tsx": $$$$$$23,
+    "deco-sites/petfarma/sections/Petfarma/Carousel.tsx": $$$$$$24,
+    "deco-sites/petfarma/sections/Petfarma/CarouselBeneficios.tsx": $$$$$$25,
+    "deco-sites/petfarma/sections/Petfarma/CarouselBlog.tsx": $$$$$$26,
+    "deco-sites/petfarma/sections/Petfarma/CarouselProducts.tsx": $$$$$$27,
+    "deco-sites/petfarma/sections/Petfarma/Footer.tsx": $$$$$$28,
+    "deco-sites/petfarma/sections/Petfarma/Image.tsx": $$$$$$29,
+    "deco-sites/petfarma/sections/Petfarma/Images.tsx": $$$$$$30,
+    "deco-sites/petfarma/sections/Petfarma/MainBanner.tsx": $$$$$$31,
+    "deco-sites/petfarma/sections/Petfarma/ProductDetails.tsx": $$$$$$32,
+    "deco-sites/petfarma/sections/Petfarma/ProductImages.tsx": $$$$$$33,
+    "deco-sites/petfarma/sections/Petfarma/ProductInfo.tsx": $$$$$$34,
+    "deco-sites/petfarma/sections/Petfarma/Text.tsx": $$$$$$35,
+    "deco-sites/petfarma/sections/Product/ImageGalleryFrontBack.tsx": $$$$$$36,
+    "deco-sites/petfarma/sections/Product/ImageGallerySlider.tsx": $$$$$$37,
+    "deco-sites/petfarma/sections/Product/NotFound.tsx": $$$$$$38,
+    "deco-sites/petfarma/sections/Product/NotFoundChallenge.tsx": $$$$$$39,
+    "deco-sites/petfarma/sections/Product/ProductInfo.tsx": $$$$$$40,
+    "deco-sites/petfarma/sections/Product/ProductShelf.tsx": $$$$$$41,
+    "deco-sites/petfarma/sections/Product/ProductShelfTabbed.tsx": $$$$$$42,
+    "deco-sites/petfarma/sections/Product/SearchResult.tsx": $$$$$$43,
+    "deco-sites/petfarma/sections/Product/Wishlist.tsx": $$$$$$44,
+    "deco-sites/petfarma/sections/Social/InstagramPosts.tsx": $$$$$$45,
+    "deco-sites/petfarma/sections/Social/WhatsApp.tsx": $$$$$$46,
+    "deco-sites/petfarma/sections/Theme/Theme.tsx": $$$$$$47,
   },
   "apps": {
     "deco-sites/petfarma/apps/decohub.ts": $$$$$$$$$$$0,

@@ -9,8 +9,10 @@ const displayCart = signal(false);
 const displayMenu = signal(false);
 const displaySearchPopup = signal(false);
 const displaySearchDrawer = signal(false);
+const buyTogetherArray = signal([]);
 
 const state = {
+  buyTogetherArray,
   displayCart,
   displayMenu,
   displaySearchPopup,

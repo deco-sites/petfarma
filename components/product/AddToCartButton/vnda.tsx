@@ -17,9 +17,6 @@ function AddToCartButton(
     addItem({
       quantity: quantity.value,
       itemId: productID,
-      attributes: Object.fromEntries(
-        additionalProperty.map(({ name, value }) => [name, value]),
-      ),
     });
 
   return (

@@ -1,16 +1,22 @@
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
+import type { NavItem as INavItem } from "./Header.tsx";
 import Image from "apps/website/components/Image.tsx";
 import { headerHeight } from "./constants.ts";
 
-function NavItem({ item }: { item: SiteNavigationElement }) {
-  const { url, name, children } = item;
-  const image = item?.image?.[0];
+function NavItem({ item, isLast }: { item: INavItem; isLast?: boolean }) {
+  const { href, label, children } = item;
+  const image = item?.image;
 
   return (
     <li class="group flex items-center">
-      <a href={url} class="px-4 py-3">
-        <span class="text-sm px-4 py-2 uppercase rounded-md hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E]">
-          {name}
+      <a href={href} class="px-4 py-3">
+        <span
+          class={`text-sm px-4 py-2 uppercase rounded-md ${
+            isLast
+              ? "bg-[#C82926] text-white"
+              : "hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E]"
+          }`}
+        >
+          {label}
         </span>
       </a>
 
@@ -21,38 +27,29 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
             style={{ top: "68px", left: "0px", marginTop: headerHeight }}
           >
             <div class="flex w-full max-w-[1440px] px-16 py-8 justify-between">
-              <ol class="items-start gap-4 max-h-[353px] grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full">
+              <ul
+                class="items-start gap-4 max-h-[353px] grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full"
+                style={{ listStyle: "square" }}
+              >
                 {children.map((node) => (
                   <li class="break-words">
-                    <a class="hover:underline" href={node.url}>
-                      <span>{node.name}</span>
+                    <a class="hover:underline" href={node.href}>
+                      <span>{node.label}</span>
                     </a>
-
-                    {
-                      /* <ul class="flex flex-col gap-1 mt-4">
-                  {node.children?.map((leaf) => (
-                    <li>
-                      <a class="hover:underline" href={leaf.url}>
-                        <span class="text-xs">{leaf.name}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul> */
-                    }
                   </li>
                 ))}
                 <li>
-                  <a class="text-sm text-[#0F9B3E]" href={item.url}>
+                  <a class="text-sm text-[#0F9B3E]" href={item.href}>
                     Ver tudo em {name}
                   </a>
                 </li>
-              </ol>
+              </ul>
 
-              {image?.url && (
+              {image?.src && (
                 <Image
                   class="rounded-lg"
-                  src={image.url}
-                  alt={image.alternateName}
+                  src={image.src}
+                  alt={image.alt}
                   width={440}
                   height={290}
                   loading="lazy"

@@ -1,23 +1,20 @@
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { MenuButton, SearchButton } from "$store/islands/Header/Buttons.tsx";
-import CartButtonLinx from "$store/islands/Header/Cart/linx.tsx";
-import CartButtonShopify from "$store/islands/Header/Cart/shopify.tsx";
 import CartButtonVDNA from "$store/islands/Header/Cart/vnda.tsx";
 import CartButtonVTEX from "$store/islands/Header/Cart/vtex.tsx";
-import CartButtonWake from "$store/islands/Header/Cart/wake.tsx";
-import CartButtonNuvemshop from "$store/islands/Header/Cart/nuvemshop.tsx";
 import Searchbar from "$store/islands/Header/Searchbar.tsx";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
+import type { NavItem as INavItem } from "./Header.tsx";
 import { navbarHeight } from "./constants.ts";
 
-function Navbar({ items, searchbar, logo }: {
-  items: SiteNavigationElement[];
+function Navbar({ items, searchbar, logo, paths }: {
+  items: INavItem[];
   searchbar?: SearchbarProps;
   logo?: { src: string; alt: string };
+  paths: { loginHref: string; helpHref: string };
 }) {
   const platform = usePlatform();
 
@@ -53,7 +50,7 @@ function Navbar({ items, searchbar, logo }: {
 
       {/* Desktop Version */}
       <div class="hidden lg:flex flex-col">
-        <div class="flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-full max-w-[1440px] jutify-center xl:px-16 py-4 md:mx-auto">
+        <div class="flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-11/12 max-w-[1440px] jutify-center py-4 mx-auto gap-4">
           <div class="flex-none">
             {logo && (
               <a
@@ -65,14 +62,14 @@ function Navbar({ items, searchbar, logo }: {
               </a>
             )}
           </div>
-          <div class="flex-none flex items-center justify-end gap-2 md:w-[48.8%] border rounded-md">
+          <div class="flex-grow flex items-center justify-end gap-2 border rounded-md">
             <SearchButton />
             <Searchbar searchbar={searchbar} />
           </div>
-          <div class="flex md:w-[31.7%] h-[35px] md:border-l md:pl-8 gap-6">
+          <div class="flex h-[35px] md:border-l pl-4 gap-6">
             <a
               class="btn btn-circle btn-sm btn-ghost flex flex-row w-auto gap-[10px]"
-              href="/login"
+              href={paths.loginHref}
               aria-label="Log in"
             >
               <div class="flex items-center justify-center w-[35px] h-[35px] bg-[#0F9B3E1A] rounded-md">
@@ -82,7 +79,7 @@ function Navbar({ items, searchbar, logo }: {
             </a>
             <a
               class="btn btn-circle btn-sm btn-ghost flex flex-row w-auto gap-[10px]"
-              href="/login"
+              href={paths.helpHref}
               aria-label="Help"
             >
               <div class="flex items-center justify-center w-[35px] h-[35px] bg-[#0F9B3E1A] rounded-md">
@@ -99,17 +96,14 @@ function Navbar({ items, searchbar, logo }: {
             {platform === "vnda" && <CartButtonVDNA />}
           </div>
         </div>
-        <div class="flex-auto flex justify-center max-w-[1440px] h-[40px] mx-auto pb-[6px]">
-          {items.map((item) => <NavItem item={item} />)}
-          <li class="flex items-center w-auto px-4 py-2 text-white uppercase">
-            <a
-              class="font-semibold px-4 py-2 bg-[#C82926] text-sm hover:scale-110 rounded-md"
-              href=""
-            >
-              OUTLET
-            </a>
-          </li>
-        </div>
+        <ul class="flex-auto flex justify-center max-w-[1440px] h-[40px] mx-auto pb-[6px]">
+          {items.map((item, index) => (
+            <NavItem
+              item={item}
+              isLast={index === (items.length - 1) ? true : false}
+            />
+          ))}
+        </ul>
       </div>
     </>
   );

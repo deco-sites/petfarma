@@ -74,13 +74,17 @@ function Searchbar({
   }, [displaySearchPopup.value]);
 
   return (
-    <div class="w-full items-center grid gap-8 sm:px-4 sm:py-6 md:p-0 overflow-y-hidden md:flex" // style={{ gridTemplateRows: "min-content auto" }}
+    <div class="w-full items-center grid gap-8 px-4 md:p-0 overflow-y-hidden md:flex" // style={{ gridTemplateRows: "min-content auto" }}
     >
-      <form id={id} action={action} class="join w-full h-[40px] pr-2">
+      <form
+        id={id}
+        action={action}
+        class="flex m-auto join w-11/12 h-[40px] pr-2"
+      >
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input input-bordered join-item flex-grow border-0 h-full sm:h-[40px]"
+          class="input-bordered bg-transparent join-item flex-grow border-0 h-full sm:h-[40px] outline-transparent"
           name={name}
           onInput={(e) => {
             const value = e.currentTarget.value;
@@ -112,27 +116,23 @@ function Searchbar({
             : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
         </Button> */
         }
-        <Button
-          class="btn-circle btn-sm btn-ghost flex h-full border-x"
-          aria-label="search icon button"
-          onClick={() => {
-            displaySearchPopup.value = !displaySearchPopup.value;
-          }}
-        >
-          <Icon
-            class="border-l"
-            id="MagnifyingGlass"
-            size={20}
-            strokeWidth={0.1}
-          />
-        </Button>
-        <Button
-          type="button"
-          class="join-item btn-ghost btn-square hidden sm:inline-flex md:hidden"
-          onClick={() => displaySearchPopup.value = false}
-        >
-          <Icon id="XMark" size={24} strokeWidth={2} />
-        </Button>
+        <div class="flex items-center">
+          <div class="h-4 bg-black opacity-30 w-[1px]" />
+          <Button
+            class="btn-square btn-sm btn-ghost flex h-full"
+            aria-label="search icon button"
+            onClick={() => {
+              displaySearchPopup.value = !displaySearchPopup.value;
+            }}
+          >
+            <Icon
+              id="MagnifyingGlass"
+              size={20}
+              strokeWidth={0.1}
+            />
+          </Button>
+          <div class="h-4 bg-black opacity-30 w-[1px]" />
+        </div>
       </form>
 
       <div

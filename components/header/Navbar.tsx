@@ -50,7 +50,7 @@ function Navbar({ items, searchbar, logo, paths }: {
 
       {/* Desktop Version */}
       <div class="hidden lg:flex flex-col">
-        <div class="flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-11/12 max-w-[1440px] jutify-center py-4 mx-auto gap-4">
+        <div class="flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-11/12 max-w-[1300px] jutify-center py-4 mx-auto gap-4">
           <div class="flex-none">
             {logo && (
               <a
@@ -96,7 +96,7 @@ function Navbar({ items, searchbar, logo, paths }: {
             {platform === "vnda" && <CartButtonVDNA />}
           </div>
         </div>
-        <ul class="flex-auto flex justify-center max-w-[1440px] h-[40px] mx-auto pb-[6px]">
+        <ul class="flex-auto flex justify-center w-11/12 max-w-[1300px] h-[40px] mx-auto pb-[6px]">
           {items.map((item, index) => (
             <NavItem
               item={item}

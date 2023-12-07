@@ -38,11 +38,6 @@ function NavItem({ item, isLast }: { item: INavItem; isLast?: boolean }) {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <a class="text-sm text-[#0F9B3E]" href={item.href}>
-                    Ver tudo em {name}
-                  </a>
-                </li>
               </ul>
 
               {image?.src && (

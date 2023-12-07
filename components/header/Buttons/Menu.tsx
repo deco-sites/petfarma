@@ -13,7 +13,9 @@ export default function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" size={24} strokeWidth={0.01} />
+      <div class="flex items-center justify-center w-[34px] h-[36px] bg-[#0F9B3E1A] rounded-md">
+        <Icon id="Bars3" size={24} strokeWidth={0.01} />
+      </div>
     </Button>
   );
 }

@@ -74,26 +74,17 @@ function Searchbar({
   }, [displaySearchPopup.value]);
 
   return (
-    <div
-      class="w-full grid gap-8 px-4 py-6 overflow-y-hidden"
-      style={{ gridTemplateRows: "min-content auto" }}
+    <div class="w-full items-center grid gap-8 px-4 md:p-0 overflow-y-hidden md:flex" // style={{ gridTemplateRows: "min-content auto" }}
     >
-      <form id={id} action={action} class="join">
-        <Button
-          type="submit"
-          class="join-item btn-square"
-          aria-label="Search"
-          for={id}
-          tabIndex={-1}
-        >
-          {loading.value
-            ? <span class="loading loading-spinner loading-xs" />
-            : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
-        </Button>
+      <form
+        id={id}
+        action={action}
+        class="flex m-auto join w-11/12 h-[40px] pr-2"
+      >
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input input-bordered join-item flex-grow"
+          class="input-bordered bg-transparent join-item flex-grow border-0 h-full sm:h-[40px] outline-transparent"
           name={name}
           onInput={(e) => {
             const value = e.currentTarget.value;
@@ -112,13 +103,36 @@ function Searchbar({
           aria-controls="search-suggestion"
           autocomplete="off"
         />
-        <Button
-          type="button"
-          class="join-item btn-ghost btn-square hidden sm:inline-flex"
-          onClick={() => displaySearchPopup.value = false}
+        {
+          /* <Button
+          type="submit"
+          class="join-item btn-square"
+          aria-label="Search"
+          for={id}
+          tabIndex={-1}
         >
-          <Icon id="XMark" size={24} strokeWidth={2} />
-        </Button>
+          {loading.value
+            ? <span class="loading loading-spinner loading-xs" />
+            : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
+        </Button> */
+        }
+        <div class="flex items-center">
+          <div class="h-4 bg-black opacity-30 w-[1px]" />
+          <Button
+            class="btn-square btn-sm btn-ghost flex h-full"
+            aria-label="search icon button"
+            onClick={() => {
+              displaySearchPopup.value = !displaySearchPopup.value;
+            }}
+          >
+            <Icon
+              id="MagnifyingGlass"
+              size={20}
+              strokeWidth={0.1}
+            />
+          </Button>
+          <div class="h-4 bg-black opacity-30 w-[1px]" />
+        </div>
       </form>
 
       <div

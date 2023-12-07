@@ -147,7 +147,7 @@ function Cart({
                       });
                     }}
                   >
-                    Fechar pedido
+                    FINALIZAR COMPRA
                   </Button>
                 </a>
               </div>

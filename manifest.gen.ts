@@ -44,12 +44,17 @@ import * as $$$$$$36 from "./sections/Content/Benefits.tsx";
 import * as $$$$$$37 from "./sections/Content/Logos.tsx";
 import * as $$$$$$38 from "./sections/Content/Testimonials.tsx";
 import * as $$$$$$39 from "./sections/Header/Header.tsx";
-import * as $$$$$$40 from "./sections/Images/ShoppableBanner.tsx";
-import * as $$$$$$41 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$42 from "./sections/Images/ImageGallery.tsx";
-import * as $$$$$$43 from "./sections/Images/BannerGrid.tsx";
-import * as $$$$$$44 from "./sections/Category/CategoryList.tsx";
-import * as $$$$$$45 from "./sections/Category/CategoryBanner.tsx";
+import * as $$$$$$40 from "./sections/institucional/menu.tsx";
+import * as $$$$$$41 from "./sections/institucional/Video.tsx";
+import * as $$$$$$42 from "./sections/institucional/Text.tsx";
+import * as $$$$$$43 from "./sections/institucional/BigImage.tsx";
+import * as $$$$$$44 from "./sections/institucional/Image&Text.tsx";
+import * as $$$$$$45 from "./sections/Images/ShoppableBanner.tsx";
+import * as $$$$$$46 from "./sections/Images/Carousel.tsx";
+import * as $$$$$$47 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$48 from "./sections/Images/BannerGrid.tsx";
+import * as $$$$$$49 from "./sections/Category/CategoryList.tsx";
+import * as $$$$$$50 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
@@ -59,8 +64,8 @@ const manifest = {
     "deco-sites/petfarma/loaders/List/Sections.tsx": $$$0,
   },
   "sections": {
-    "deco-sites/petfarma/sections/Category/CategoryBanner.tsx": $$$$$$45,
-    "deco-sites/petfarma/sections/Category/CategoryList.tsx": $$$$$$44,
+    "deco-sites/petfarma/sections/Category/CategoryBanner.tsx": $$$$$$50,
+    "deco-sites/petfarma/sections/Category/CategoryList.tsx": $$$$$$49,
     "deco-sites/petfarma/sections/Content/Benefits.tsx": $$$$$$36,
     "deco-sites/petfarma/sections/Content/Faq.tsx": $$$$$$35,
     "deco-sites/petfarma/sections/Content/Logos.tsx": $$$$$$37,
@@ -68,10 +73,15 @@ const manifest = {
     "deco-sites/petfarma/sections/Footer/Footer.tsx": $$$$$$0,
     "deco-sites/petfarma/sections/Gallery.tsx": $$$$$$21,
     "deco-sites/petfarma/sections/Header/Header.tsx": $$$$$$39,
-    "deco-sites/petfarma/sections/Images/BannerGrid.tsx": $$$$$$43,
-    "deco-sites/petfarma/sections/Images/Carousel.tsx": $$$$$$41,
-    "deco-sites/petfarma/sections/Images/ImageGallery.tsx": $$$$$$42,
-    "deco-sites/petfarma/sections/Images/ShoppableBanner.tsx": $$$$$$40,
+    "deco-sites/petfarma/sections/Images/BannerGrid.tsx": $$$$$$48,
+    "deco-sites/petfarma/sections/Images/Carousel.tsx": $$$$$$46,
+    "deco-sites/petfarma/sections/Images/ImageGallery.tsx": $$$$$$47,
+    "deco-sites/petfarma/sections/Images/ShoppableBanner.tsx": $$$$$$45,
+    "deco-sites/petfarma/sections/institucional/BigImage.tsx": $$$$$$43,
+    "deco-sites/petfarma/sections/institucional/Image&Text.tsx": $$$$$$44,
+    "deco-sites/petfarma/sections/institucional/menu.tsx": $$$$$$40,
+    "deco-sites/petfarma/sections/institucional/Text.tsx": $$$$$$42,
+    "deco-sites/petfarma/sections/institucional/Video.tsx": $$$$$$41,
     "deco-sites/petfarma/sections/Layout/Container.tsx": $$$$$$17,
     "deco-sites/petfarma/sections/Layout/Flex.tsx": $$$$$$19,
     "deco-sites/petfarma/sections/Layout/Grid.tsx": $$$$$$20,

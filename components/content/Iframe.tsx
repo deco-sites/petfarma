@@ -50,7 +50,7 @@ const Iframe = ({ src }: Props) => {
   return (
     <iframe
       title="Petfarma Iframe"
-      src={"http://localhost:8000/entrar"}
+      src={src}
       ref={iframeRef}
       frameBorder="0"
       style={{ width: "100%", border: "none" }}

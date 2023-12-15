@@ -1,1 +1,1 @@
-export { default } from "$store/components/product/PDP/CheckBox.tsx"
+export { default } from "$store/components/product/PDP/CheckBox.tsx";

@@ -9,7 +9,7 @@ function CheckBox({ product }: { product: Product }) {
   const input = useRef<HTMLInputElement>(null);
   const id = useId();
 
-  console.log(input.current?.checked)
+  console.log(input.current?.checked);
   return (
     <label
       htmlFor={id}

@@ -2,7 +2,7 @@ import { Product } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
-import CheckBox from "$store/components/product/PDP/CheckBox.tsx";
+import CheckBox from "$store/islands/Petfarma/CheckBox.tsx";
 import BuyTogetherPrice from "$store/components/product/PDP/BuyTogetherPrice.tsx";
 
 export interface Props {

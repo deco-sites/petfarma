@@ -1,1 +1,1 @@
-export { default } from "$store/components/product/PDP/BuyTogether.tsx"
+export { default } from "$store/components/product/PDP/BuyTogether.tsx";

@@ -8,11 +8,11 @@ function NavItem({ item, isLast }: { item: INavItem; isLast?: boolean }) {
 
   return (
     <li class="group flex items-center">
-      <a href={href} class="px-4 py-3">
+      <a href={href} class="pr-2 py-3">
         <span
-          class={`text-sm px-4 py-2 uppercase rounded-md ${
+          class={`text-sm py-2 uppercase rounded-md ${
             isLast
-              ? "bg-[#C82926] text-white"
+              ? "bg-[#C82926] text-white px-4"
               : "hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E]"
           }`}
         >

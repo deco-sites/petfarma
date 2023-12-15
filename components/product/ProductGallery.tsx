@@ -1,6 +1,4 @@
-import ProductCard, {
-  Layout as CardLayout,
-} from "$store/components/product/ProductCard.tsx";
+import ProductCard from "$store/components/content/ProductCard.tsx";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import { Product } from "apps/commerce/types.ts";
 
@@ -13,7 +11,6 @@ export interface Props {
   products: Product[] | null;
   offset: number;
   layout?: {
-    card?: CardLayout;
     columns?: Columns;
   };
 }
@@ -37,13 +34,9 @@ function ProductGallery({ products, layout, offset }: Props) {
 
   return (
     <div class={`grid ${mobile} gap-2 items-center ${desktop} sm:gap-10`}>
-      {products?.map((product, index) => (
+      {products?.map((product) => (
         <ProductCard
           product={product}
-          preload={index === 0}
-          index={offset + index}
-          layout={layout?.card}
-          platform={platform}
         />
       ))}
     </div>

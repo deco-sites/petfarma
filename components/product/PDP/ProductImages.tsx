@@ -30,7 +30,7 @@ function ProductImages({ page, style }: Props) {
   const id = useId();
 
   return (
-    <div id={id} class="flex flex-col" style={{ gap: style.gap }}>
+    <div id={id} class="flex flex-col items-center" style={{ gap: style.gap }}>
       <Slider class="carousel carousel-center gap-6 w-full max-w-[446px] ">
         {images?.map((img, index) => {
           return (

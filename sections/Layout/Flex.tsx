@@ -51,7 +51,7 @@ function Flex({ layout, children }: Props) {
           flex.wrap.mobile[layout?.wrap?.mobile ?? "wrap"],
           flex.wrap.desktop[layout?.wrap?.desktop ?? "wrap"],
         )
-      } w-11/12 m-auto max-width-[1300px]`}
+      } w-11/12 m-auto max-w-[1300px]`}
     >
       {items}
     </div>

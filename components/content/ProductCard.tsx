@@ -4,6 +4,8 @@ import { SendEventOnClick } from "$store/components/Analytics.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
+import Image from "apps/website/components/Image.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 
 export default function ProductCard(
   {
@@ -59,6 +61,24 @@ export default function ProductCard(
     ((listPrice - price) / listPrice) * 100,
   );
 
+  const marca = additionalProperty.find(({ name }) => name.includes("marca"));
+
+  const formatedMarca = marca ? JSON.parse(marca.value) : false;
+
+  const destaque = additionalProperty.find(({ name }) =>
+    name.includes("destaque")
+  );
+
+  const formatedDestaque = marca ? JSON.parse(destaque.value) : false;
+
+  const hasDogFlag = additionalProperty.some(({ name }) =>
+    name.includes("cachorro")
+  );
+
+  const hasCatFlag = additionalProperty.some(({ name }) =>
+    name.includes("gato")
+  );
+
   return (
     <div
       class={`${
@@ -99,26 +119,57 @@ export default function ProductCard(
           class={`py-2 flex hover:shadow-2xl transition flex-col justify-between border-[2px] border-[#552B9A1A] border-opacity-10 border-solid rounded-[10px] w-full relative h-full`}
           style={{ backgroundColor }}
         >
-          <div class="px-2 rounded-[10px] h-full flex-col justify-between flex">
+          <div class="px-2 rounded-[10px] h-full flex-col justify-between flex relative">
             <figure class="flex object-contain max-w-[200px] w-auto h-[260px] items-center justify-center mx-auto">
-              <img
+              <Image
                 class="h-[200px] object-contain"
                 src={front.url!}
                 alt={name}
                 loading="lazy"
+                height={200}
                 width={200}
               />
             </figure>
-            <p class="font-[700] pb-3 uppercase" style={{ color }}>
-              {brand?.name}
-            </p>
+
+            <div class="absolute top-2 left-5 flex flex-col gap-2">
+              {percent > 0 && price && listPrice && (
+                <p class="bg-[#C82926]  text-white rounded-md font-medium text-xs py-1 px-2">
+                  {(((listPrice - price) / listPrice) * 100).toString().split(
+                    ".",
+                  )[0]}% OFF
+                </p>
+              )}
+              {formatedDestaque && (
+                <p class="bg-[#0F9B3E]  text-white rounded-md font-medium text-xs py-1 px-2">
+                  {formatedDestaque.title}
+                </p>
+              )}
+            </div>
+            <div class="absolute top-2 right-5 flex flex-col gap-4">
+              {hasDogFlag && (
+                <div class="bg-[#F9F9F9] rounded-md p-2">
+                  <Icon id="DogShield" width={20} height={21} />
+                </div>
+              )}
+              {hasCatFlag && (
+                <div class="bg-[#F9F9F9] rounded-md p-2">
+                  <Icon id="CatShield" width={20} height={21} />
+                </div>
+              )}
+            </div>
+
+            {formatedMarca && (
+              <p class="font-semibold text-[14px] text-[#202020] text-opacity-60 pb-3">
+                {formatedMarca.title}
+              </p>
+            )}
             {name && (
               <>
                 <p class="block md:hidden text-[12px] text-[#00000080]">
                   {name.length <= 45 ? name : `${name.slice(0, 42)}...`}
                 </p>
                 <p class="hidden md:block text-[12px] text-[#00000080] h-10">
-                  {name.length <= 70 ? name : `${name.slice(0, 60)}...`}
+                  {name.length <= 50 ? name : `${name.slice(0, 50)}...`}
                 </p>
               </>
             )}
@@ -154,13 +205,6 @@ export default function ProductCard(
                     {formatPrice(listPrice, offers!.priceCurrency!)}
                   </p>
                 )}
-                {percent > 0 && price && listPrice && (
-                  <p class="bg-secondary text-white rounded-lg font-medium text-xs py-1 px-2">
-                    {(((listPrice - price) / listPrice) * 100).toString().split(
-                      ".",
-                    )[0]}% OFF
-                  </p>
-                )}
               </span>
             </div>
 
@@ -170,7 +214,11 @@ export default function ProductCard(
 
             <div
               class="text-[12px] font-normal group-hover:hidden overflow-hidden max-h-20"
-              dangerouslySetInnerHTML={{ __html: description ?? "" }}
+              dangerouslySetInnerHTML={{
+                __html: description.length > 50
+                  ? `${name.slice(0, 50)}...`
+                  : description ?? "",
+              }}
             />
             <div href={url}>
               <style

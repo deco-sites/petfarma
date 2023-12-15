@@ -96,7 +96,7 @@ function Navbar({ items, searchbar, logo, paths }: {
             {platform === "vnda" && <CartButtonVDNA />}
           </div>
         </div>
-        <ul class="flex-auto flex justify-center w-11/12 max-w-[1300px] h-[40px] mx-auto pb-[6px]">
+        <ul class="flex-auto flex justify-between w-11/12 max-w-[1300px] h-[40px] pb-[6px] mx-auto">
           {items.map((item, index) => (
             <NavItem
               item={item}

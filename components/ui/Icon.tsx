@@ -13,6 +13,8 @@ export type AvailableIcons =
   | "CreditCard"
   | "Cat"
   | "Dog"
+  | "DogShield"
+  | "CatShield"
   | "Deco"
   | "Diners"
   | "Discord"

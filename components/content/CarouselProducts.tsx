@@ -8,8 +8,7 @@ import type { Product } from "apps/commerce/types.ts";
 import ProductCard from "$store/components/content/ProductCard.tsx";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
 
-
-type Icons = "Dog" | "Cat" | "Bird" | "Horse" | "Bull"
+type Icons = "Dog" | "Cat" | "Bird" | "Horse" | "Bull";
 
 export interface Props {
   /**
@@ -19,10 +18,10 @@ export interface Props {
   titleColor?: string;
   title?: string;
   mobileBigCard?: boolean;
-  sections: { 
+  sections: {
     section: Product[] | null;
     title?: string;
-    icon: Icons
+    icon: Icons;
   }[];
   /**
    * @format color
@@ -46,13 +45,13 @@ function Carousel(
     mobileBigCard,
     color,
     backgroundColor,
-    sectionIndex
+    sectionIndex,
   }: Props,
 ) {
   const id = useId();
 
   const divider = <div class="w-full h-[1px] bg-black bg-opacity-10" />;
-  const section = sections[sectionIndex ?? 0].section
+  const section = sections[sectionIndex ?? 0].section;
 
   return (
     <section
@@ -68,19 +67,24 @@ function Carousel(
             {title}
           </h2>
         )}
-        <div class="lg:flex gap-4 flex-wrap justify-center hidden">         
-        {sections.length > 1 && sections?.map(({title, icon}, index) => (
-          <button
-          data-slice-dot={index}
-          aria-label={`go to slider item ${index}`}
-          class={`flex gap-4 items-center justify-center rounded-md w-[137px] h-[36px] text-[14px] bg-[#0F9B3E] ${title === sections[sectionIndex ?? 0].title ? "text-white" : "bg-opacity-10 text-[#0F9B3E]" } `}
-          {...usePartialSection({ props: { sectionIndex: index } })}
-          >
-          <Icon id={icon} width={26} height={20} />
-          {title}
-          </button>
-      ))}
-      </div>
+        <div class="lg:flex gap-4 flex-wrap justify-center hidden">
+          {sections.length > 1 &&
+            sections?.map(({ title, icon }, index) => (
+              <button
+                data-slice-dot={index}
+                aria-label={`go to slider item ${index}`}
+                class={`flex gap-4 items-center justify-center rounded-md w-[137px] h-[36px] text-[14px] bg-[#0F9B3E] ${
+                  title === sections[sectionIndex ?? 0].title
+                    ? "text-white"
+                    : "bg-opacity-10 text-[#0F9B3E]"
+                } `}
+                {...usePartialSection({ props: { sectionIndex: index } })}
+              >
+                <Icon id={icon} width={26} height={20} />
+                {title}
+              </button>
+            ))}
+        </div>
         <div class="flex justify-between gap-4">
           <Slider.PrevButton
             class="no-animation btn btn-circle btn-outline w-[40px] min-h-[40px] max-h-[40px] p-0"
@@ -99,18 +103,23 @@ function Carousel(
         </div>
       </div>
       <>{divider}</>
-      <div class="flex gap-4 flex-wrap justify-center lg:hidden">         
-        {sections.length > 1 && sections?.map(({title, icon}, index) => (
-          <button
-          data-slice-dot={index}
-          aria-label={`go to slider item ${index}`}
-          class={`flex gap-4 items-center justify-center rounded-md w-[137px] h-[36px] text-[14px] bg-[#0F9B3E] ${title === sections[sectionIndex ?? 0].title ? "text-white" : "bg-opacity-10 text-[#0F9B3E]" } `}
-          {...usePartialSection({ props: { sectionIndex: index } })}
-          >
-          <Icon id={icon} width={26} height={20} />
-          {title}
-          </button>
-      ))}
+      <div class="flex gap-4 flex-wrap justify-center lg:hidden">
+        {sections.length > 1 &&
+          sections?.map(({ title, icon }, index) => (
+            <button
+              data-slice-dot={index}
+              aria-label={`go to slider item ${index}`}
+              class={`flex gap-4 items-center justify-center rounded-md w-[137px] h-[36px] text-[14px] bg-[#0F9B3E] ${
+                title === sections[sectionIndex ?? 0].title
+                  ? "text-white"
+                  : "bg-opacity-10 text-[#0F9B3E]"
+              } `}
+              {...usePartialSection({ props: { sectionIndex: index } })}
+            >
+              <Icon id={icon} width={26} height={20} />
+              {title}
+            </button>
+          ))}
       </div>
       <Slider class="carousel carousel-start gap-4 min-h-[263px] flex items-end bg-transparent py-[24px]">
         {section?.map((product, index) => (

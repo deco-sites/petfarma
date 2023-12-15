@@ -61,22 +61,22 @@ export default function ProductCard(
     ((listPrice - price) / listPrice) * 100,
   );
 
-  const marca = additionalProperty.find(({ name }) => name.includes("marca"));
+  const marca = additionalProperty?.find(({ name }) => name?.includes("marca"));
 
-  const formatedMarca = marca ? JSON.parse(marca.value) : false;
+  const formatedMarca = marca?.value ? JSON.parse(marca.value) : false;
 
-  const destaque = additionalProperty.find(({ name }) =>
-    name.includes("destaque")
+  const destaque = additionalProperty?.find(({ name }) =>
+    name?.includes("destaque")
   );
 
-  const formatedDestaque = marca ? JSON.parse(destaque.value) : false;
+  const formatedDestaque = destaque?.value ? JSON.parse(destaque.value) : false;
 
-  const hasDogFlag = additionalProperty.some(({ name }) =>
-    name.includes("cachorro")
+  const hasDogFlag = additionalProperty?.some(({ name }) =>
+    name?.includes("cachorro")
   );
 
-  const hasCatFlag = additionalProperty.some(({ name }) =>
-    name.includes("gato")
+  const hasCatFlag = additionalProperty?.some(({ name }) =>
+    name?.includes("gato")
   );
 
   return (
@@ -216,8 +216,8 @@ export default function ProductCard(
             <div
               class="text-[12px] font-normal group-hover:hidden overflow-hidden max-h-20"
               dangerouslySetInnerHTML={{
-                __html: description.length > 50
-                  ? `${name.slice(0, 50)}...`
+                __html: description?.length ?? 0 > 50
+                  ? `${name?.slice(0, 50)}...`
                   : description ?? "",
               }}
             />

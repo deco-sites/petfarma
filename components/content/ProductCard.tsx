@@ -126,6 +126,7 @@ export default function ProductCard(
                 src={front.url!}
                 alt={name}
                 loading="lazy"
+                decoding="async"
                 height={200}
                 width={200}
               />

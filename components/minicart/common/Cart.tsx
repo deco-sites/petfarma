@@ -18,7 +18,7 @@ interface Props {
   coupon?: string;
   freeShippingTarget: number;
   checkoutHref: string;
-  onAddCoupon?: CouponProps["onAddCoupon"];
+  onAddCoupon: CouponProps["onAddCoupon"];
   onUpdateQuantity: ItemProps["onUpdateQuantity"];
   itemToAnalyticsItem: ItemProps["itemToAnalyticsItem"];
 }
@@ -26,7 +26,6 @@ interface Props {
 function Cart({
   items,
   total,
-  subtotal,
   locale,
   coupon,
   loading,
@@ -43,8 +42,8 @@ function Cart({
 
   return (
     <div
-      class="flex flex-col justify-center items-center overflow-hidden"
-      style={{ minWidth: "calc(min(100vw, 425px))", maxWidth: "425px" }}
+      class="flex flex-col justify-between items-center overflow-auto bg-white"
+      style={{ minWidth: "calc(min(90%, 425px))", maxWidth: "425px" }}
     >
       {isEmtpy
         ? (
@@ -75,10 +74,13 @@ function Cart({
             {/* Cart Items */}
             <ul
               role="list"
-              class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
+              class="px-2 flex-grow overflow-y-auto h-[30vh] min-h-[200px] flex flex-col gap-6 w-full py-2"
             >
               {items.map((item, index) => (
-                <li key={index}>
+                <li
+                  key={index}
+                  class="flex flex-col gap-4 w-11/12 mx-auto"
+                >
                   <CartItem
                     item={item}
                     index={index}
@@ -87,14 +89,16 @@ function Cart({
                     onUpdateQuantity={onUpdateQuantity}
                     itemToAnalyticsItem={itemToAnalyticsItem}
                   />
+                  <div class="block h-[2px] w-full bg-black opacity-10" />
                 </li>
               ))}
             </ul>
 
             {/* Cart Footer */}
-            <footer class="w-full">
+            <footer class="w-11/12 flex flex-col mx-auto">
               {/* Subtotal */}
-              <div class="border-t border-base-200 py-2 flex flex-col">
+
+              <div class="flex flex-col">
                 {discounts > 0 && (
                   <div class="flex justify-between items-center px-4">
                     <span class="text-sm">Descontos</span>
@@ -103,35 +107,28 @@ function Cart({
                     </span>
                   </div>
                 )}
-                <div class="w-full flex justify-between px-4 text-sm">
-                  <span>Subtotal</span>
-                  <span class="px-4">
-                    {formatPrice(subtotal, currency, locale)}
-                  </span>
-                </div>
-                {onAddCoupon && (
-                  <Coupon onAddCoupon={onAddCoupon} coupon={coupon} />
-                )}
+                <Coupon onAddCoupon={onAddCoupon} coupon={coupon} />
               </div>
 
+              <div class="block h-[2px] w-full bg-black opacity-10" />
+
               {/* Total */}
-              <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
+              <div class="flex flex-col justify-end items-end gap-2 mx-4 pt-[10px]">
                 <div class="flex justify-between items-center w-full">
-                  <span>Total</span>
-                  <span class="font-medium text-xl">
+                  <span class="uppercase font-bold text-[#00000099] opacity-70 text-sm">
+                    Total (sem frete)
+                  </span>
+                  <span class="font-bold text-base text-primary">
                     {formatPrice(total, currency, locale)}
                   </span>
                 </div>
-                <span class="text-sm text-base-300">
-                  Taxas e fretes serão calculados no checkout
-                </span>
               </div>
 
-              <div class="p-4">
+              <div class="p-4 flex flex-col gap-4">
                 <a class="inline-block w-full" href={checkoutHref}>
                   <Button
                     data-deco="buy-button"
-                    class="btn-primary btn-block"
+                    class="bg-[#0F9B3E] btn-block text-white min-h-10 h-10"
                     disabled={loading || isEmtpy}
                     onClick={() => {
                       sendEvent({
@@ -150,6 +147,16 @@ function Cart({
                     FINALIZAR COMPRA
                   </Button>
                 </a>
+                <Button
+                  data-deco="buy-button"
+                  class="text-[#0F9B3E] btn-block bg-[#0F9B3E] bg-opacity-10 min-h-10 h-10"
+                  disabled={loading || isEmtpy}
+                  onClick={() => {
+                    displayCart.value = false;
+                  }}
+                >
+                  CONTINUAR COMPRANDO
+                </Button>
               </div>
             </footer>
           </>

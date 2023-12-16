@@ -8,15 +8,27 @@ export interface Props {
 
 function Coupon({ coupon, onAddCoupon }: Props) {
   const [loading, setLoading] = useState(false);
-  const [display, setDisplay] = useState(false);
+  const [isFirstTime, setIsFirstTime] = useState(true);
 
   return (
-    <div class="flex justify-between items-center px-4">
-      <span class="text-sm">Cupom de desconto</span>
-      {display
-        ? (
+    <div class="px-4 flex flex-col gap-4 py-4">
+      <div class="flex w-full justify-between items-center gap-2">
+        <span class="text-[13px] font-semibold text-[#00000099] uppercase">
+          adicionar cupom
+        </span>
+        {!isFirstTime && (
+          <span
+            class="text-[13px] font-semibold"
+            style={{ color: coupon ? "#21A8A3" : "red" }}
+          >
+            {coupon ? "Cupom aplicado" : "Cupom inválido"}
+          </span>
+        )}
+      </div>
+      <div class="flex justify-between items-center">
+        {
           <form
-            class="join"
+            class="w-full justify-between flex gap-4"
             onSubmit={async (e) => {
               e.preventDefault();
               const { currentTarget: { elements } } = e;
@@ -29,21 +41,21 @@ function Coupon({ coupon, onAddCoupon }: Props) {
               try {
                 setLoading(true);
                 await onAddCoupon(text);
-                setDisplay(false);
               } finally {
                 setLoading(false);
+                setIsFirstTime(false);
               }
             }}
           >
             <input
               name="coupon"
-              class="input join-item"
+              class="border w-full"
               type="text"
               value={coupon ?? ""}
               placeholder={"Cupom"}
             />
             <Button
-              class="join-item"
+              class=" bg-primary text-white min-h-[36px] max-h-[36px] w-[36px]"
               type="submit"
               htmlFor="coupon"
               loading={loading}
@@ -51,15 +63,8 @@ function Coupon({ coupon, onAddCoupon }: Props) {
               Ok
             </Button>
           </form>
-        )
-        : (
-          <Button
-            class="btn-ghost underline font-normal"
-            onClick={() => setDisplay(true)}
-          >
-            {coupon || "Adicionar"}
-          </Button>
-        )}
+        }
+      </div>
     </div>
   );
 }

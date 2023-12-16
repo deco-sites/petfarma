@@ -10,6 +10,7 @@ import type { ComponentChildren } from "preact";
 import Image from "apps/website/components/Image.tsx";
 import { lazy, Suspense } from "preact/compat";
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import { itemToAnalyticsItem, useCart } from "apps/vnda/hooks/useCart.ts";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const MenuProducts = lazy(() =>
@@ -76,6 +77,45 @@ const Aside = (
   </div>
 );
 
+const AsideCart = (
+  { title, onClose, children, chevronClick, logo }: {
+    title?: string;
+    onClose?: () => void;
+    children: ComponentChildren;
+    chevronClick?: () => void;
+    logo?: { src: ImageWidget; alt: string };
+  },
+) => (
+  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y w-[100vw] max-w-[425px]">
+    <div class="flex justify-start items-center p-4 gap-2">
+      {onClose && (
+        <Button
+          class="btn btn-ghost bg-[#c829261a] w-[40px] p-[10px] rounded-md"
+          onClick={onClose}
+        >
+          <Icon id="XMark" size={20} strokeWidth={2} />
+        </Button>
+      )}
+      <Icon id="shopping-bag" width={18} height={21} class="text-black" />
+      {title && (
+        <span class="text-[14px]">
+          <strong class="font-bold uppercase">Seu carrinho:</strong>
+          {title}
+        </span>
+      )}
+    </div>
+    <Suspense
+      fallback={
+        <div class="flex items-center justify-center">
+          <span class="loading loading-ring" />
+        </div>
+      }
+    >
+      {children}
+    </Suspense>
+  </div>
+);
+
 function Drawers({ menu, children, platform, logo }: Props) {
   const {
     displayCart,
@@ -83,6 +123,10 @@ function Drawers({ menu, children, platform, logo }: Props) {
     displayMenuProducts,
     productsChild,
   } = useUI();
+
+  const { cart } = useCart();
+  const items = cart.value?.orderForm?.items ?? [];
+  const totalItems = items.map(itemToAnalyticsItem).length;
 
   return (
     <Drawer // left drawer
@@ -122,12 +166,12 @@ function Drawers({ menu, children, platform, logo }: Props) {
           open={displayCart.value !== false}
           onClose={() => displayCart.value = false}
           aside={
-            <Aside
-              title="Minha sacola"
+            <AsideCart
+              title={` ${totalItems} ${totalItems === 1 ? "item" : "itens"}`}
               onClose={() => displayCart.value = false}
             >
               <Cart platform={platform} />
-            </Aside>
+            </AsideCart>
           }
         >
           {children}

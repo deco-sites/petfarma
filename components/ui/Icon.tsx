@@ -41,6 +41,7 @@ export type AvailableIcons =
   | "Ruler"
   | "ShoppingCart"
   | "sliders"
+  | "shopping-bag"
   | "Star"
   | "star"
   | "starVazia"

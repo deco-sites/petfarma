@@ -121,6 +121,8 @@ function Searchbar({
           <Button
             class="btn-square btn-sm btn-ghost flex h-full"
             aria-label="search icon button"
+            type="submit"
+            htmlFor={id}
             onClick={() => {
               displaySearchPopup.value = !displaySearchPopup.value;
             }}

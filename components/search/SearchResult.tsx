@@ -8,6 +8,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import PageInfo from "$store/components/search/PageInfo.tsx";
 
 export interface Layout {
   /**
@@ -54,51 +55,31 @@ function Result({
 
   return (
     <>
-      <div class="container px-4 sm:py-10">
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={layout?.variant === "drawer"}
-        />
-
-        <div class="flex flex-row">
-          {layout?.variant === "aside" && filters.length > 0 && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
+      <div class="flex flex-col gap-4 mx-auto max-w-[1300px] w-11/12 py-10">
+        <div class="flex flex-row gap-4">
+          {filters.length > 0 && (
+            <aside class="hidden lg:block w-min min-w-[250px]">
               <Filters filters={filters} />
             </aside>
           )}
-          <div class="flex-grow" id={id}>
-            <ProductGallery
-              products={products}
-              offset={offset}
-              layout={{ card: cardLayout, columns: layout?.columns }}
+          <div class="flex flex-col gap-6 flex-grow">
+            <SearchControls
+              sortOptions={sortOptions}
+              filters={filters}
+              pageInfo={pageInfo}
+              displayFilter={layout?.variant === "drawer"}
             />
+            <div class="w-full h-[1px] bg-black bg-opacity-10" />
+            <div class="flex-grow" id={id}>
+              <ProductGallery
+                products={products}
+              />
+            </div>
           </div>
         </div>
 
-        <div class="flex justify-center my-4">
-          <div class="join">
-            <a
-              aria-label="previous page link"
-              rel="prev"
-              href={pageInfo.previousPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronLeft" size={24} strokeWidth={2} />
-            </a>
-            <span class="btn btn-ghost join-item">
-              Page {zeroIndexedOffsetPage + 1}
-            </span>
-            <a
-              aria-label="next page link"
-              rel="next"
-              href={pageInfo.nextPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronRight" size={24} strokeWidth={2} />
-            </a>
-          </div>
+        <div class="flex justify-center">
+          <PageInfo pageInfo={pageInfo} productsInPage={products.length} />
         </div>
       </div>
       <SendEventOnView

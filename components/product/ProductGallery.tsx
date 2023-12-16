@@ -9,31 +9,11 @@ export interface Columns {
 
 export interface Props {
   products: Product[] | null;
-  offset: number;
-  layout?: {
-    columns?: Columns;
-  };
 }
 
-const MOBILE_COLUMNS = {
-  1: "grid-cols-1",
-  2: "grid-cols-2",
-};
-
-const DESKTOP_COLUMNS = {
-  2: "sm:grid-cols-2",
-  3: "sm:grid-cols-3",
-  4: "sm:grid-cols-4",
-  5: "sm:grid-cols-5",
-};
-
-function ProductGallery({ products, layout, offset }: Props) {
-  const platform = usePlatform();
-  const mobile = MOBILE_COLUMNS[layout?.columns?.mobile ?? 2];
-  const desktop = DESKTOP_COLUMNS[layout?.columns?.desktop ?? 4];
-
+function ProductGallery({ products }: Props) {
   return (
-    <div class={`grid ${mobile} gap-2 items-center ${desktop} sm:gap-10`}>
+    <div class={`flex justify-center gap-2 items-center flex-wrap sm:gap-10`}>
       {products?.map((product) => (
         <ProductCard
           product={product}

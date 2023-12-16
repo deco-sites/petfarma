@@ -8,13 +8,13 @@ import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
 export type Props =
-  & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
+  & Pick<ProductListingPage, "filters" | "pageInfo" | "sortOptions">
   & {
     displayFilter?: boolean;
   };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions }: Props,
+  { filters, pageInfo, displayFilter, sortOptions }: Props,
 ) {
   const open = useSignal(false);
 
@@ -25,36 +25,42 @@ function SearchControls(
       onClose={() => open.value = false}
       aside={
         <>
-          <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-            <div class="flex justify-between items-center">
-              <h1 class="px-4 py-3">
-                <span class="font-medium text-2xl">Filtrar</span>
-              </h1>
-              <Button class="btn btn-ghost" onClick={() => open.value = false}>
-                <Icon id="XMark" size={24} strokeWidth={2} />
+          <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden w-screen max-w-[475px]">
+            <div class="flex justify-start items-center gap-4 w-11/12 mx-auto">
+              <Button
+                class="btn btn-ghost bg-[#c829261a] w-[40px] p-[10px] rounded-md"
+                onClick={() => open.value = false}
+              >
+                <Icon id="XMark" size={20} strokeWidth={2} />
               </Button>
+              <Icon id="sliders" class="text-black" size={20} />
+              <h2 class="py-3">
+                <span class="font-medium text-2xl">Filtrar</span>
+              </h2>
             </div>
-            <div class="flex-grow overflow-auto">
+            <div class="flex-grow overflow-auto  w-11/12 mx-auto">
               <Filters filters={filters} />
             </div>
           </div>
         </>
       }
     >
-      <div class="flex flex-col justify-between mb-4 p-4 sm:mb-0 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-base-200">
-        <div class="flex flex-row items-center sm:p-0 mb-2">
-          <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-        </div>
-
-        <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+      <div class="flex flex-col justify-between items-start lg:items-center gap-4 lg:flex-row lg:h-[53px]">
+        <span class="font-semibold text-black text-opacity-60 text-[14px]">
+          {pageInfo.records} produtos encontrados
+        </span>
+        <div class="flex flex-row items-center justify-between lg:gap-4 lg:border-none w-full lg:w-[300px]">
           <Button
-            class={displayFilter ? "btn-ghost" : "btn-ghost sm:hidden"}
+            class={displayFilter
+              ? "btn-ghost flex-grow max-w-[350px]"
+              : "btn-ghost lg:hidden flex-grow justify-between font-bold text-black uppercase h-[55px] max-h-[55px] max-w-[350px]"}
             onClick={() => {
               open.value = true;
             }}
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.04)" }}
           >
             Filtrar
-            <Icon id="FilterList" width={16} height={16} />
+            <Icon id="sliders" class="text-black" size={20} />
           </Button>
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>

@@ -12,6 +12,49 @@ const displaySearchDrawer = signal(false);
 const displayMenuProducts = signal(false);
 const productsChild = signal({ label: "", children: [], href: "" });
 const productsBuyTogether = signal<Product[]>([]);
+const filtersUrl = signal("https://petfarma.deco.site/");
+function updateQueryParam(
+  url: string,
+  label: string,
+  value: string,
+): boolean {
+  let isChecked;
+  const urlObject = new URL(url);
+  const searchParams = urlObject.searchParams;
+  const searchParamsArray = Array.from(searchParams);
+
+  const key = `type_tags[${label}][]`;
+
+  const isToRemove = searchParamsArray.some((ele) =>
+    JSON.stringify(ele) === JSON.stringify([key, value])
+  );
+
+  if (isToRemove) {
+    const searchParamsArrayFiltered = searchParamsArray.filter((params) =>
+      params[1] !== value
+    );
+
+    // Limpar todos os parâmetros
+    searchParamsArray.forEach((item) => {
+      urlObject.searchParams.delete(item[0]);
+    });
+
+    // Adicionar os parâmetros filtrados de volta
+    searchParamsArrayFiltered.forEach((item) => {
+      urlObject.searchParams.append(item[0], item[1]);
+    });
+
+    isChecked = false;
+  } else {
+    searchParams.append(key, value);
+    isChecked = true;
+  }
+  filtersUrl.value = urlObject.href;
+  return isChecked;
+}
+const selectedFilters = signal<
+  { label: string; filterLabel: string; ref: React.RefObject<HTMLDivElement> }[]
+>([]);
 
 const state = {
   displayCart,
@@ -21,6 +64,9 @@ const state = {
   displayMenuProducts,
   productsChild,
   productsBuyTogether,
+  filtersUrl,
+  selectedFilters,
+  updateQueryParam,
 };
 
 // Keyboard event listeners

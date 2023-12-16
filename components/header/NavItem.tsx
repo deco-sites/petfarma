@@ -24,7 +24,7 @@ function NavItem({ item, isLast }: { item: INavItem; isLast?: boolean }) {
         (
           <div
             class="fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-b-2 border-base-200 w-screen"
-            style={{ top: "68px", left: "0px", marginTop: headerHeight }}
+            style={{ top: headerHeight, left: "0px" }}
           >
             <div class="flex w-full max-w-[1440px] px-16 py-8 justify-between">
               <ul

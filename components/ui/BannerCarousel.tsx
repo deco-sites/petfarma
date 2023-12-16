@@ -70,15 +70,15 @@ function BannerItem(
       id={id}
       href={href ?? "#"}
       aria-label={label}
-      class="relative h-[400px] overflow-y-hidden w-full max-w-[1312px]"
+      class="relative max-h-[400px] overflow-y-hidden w-full max-w-[1312px]"
     >
       <Picture preload={lcp}>
         <Source
           media="(max-width: 767px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={mobile}
-          width={360}
-          height={400}
+          width={343}
+          height={202}
         />
         <Source
           media="(min-width: 768px)"
@@ -88,7 +88,7 @@ function BannerItem(
           height={400}
         />
         <img
-          class="object-cover w-full h-full rounded-lg"
+          class="object-contain w-full h-full rounded-lg"
           loading={lcp ? "eager" : "lazy"}
           src={desktop}
           alt={alt}
@@ -162,17 +162,17 @@ function BannerCarousel(props: Props) {
   return (
     <div
       id={id}
-      class="relative flex flex-col max-w-[1400px] w-full m-auto md:py-10 gap-4"
+      class="relative flex flex-col max-w-[1400px] w-full m-auto py-10 gap-4"
     >
       <div class="relative h-fit">
-        <Slider class="carousel carousel-center w-full col-span-full row-span-full gap-6">
+        <Slider class="carousel carousel-center w-full col-span-full row-span-full gap-3 lg:gap-6">
           {images?.map((image, index) => {
             const params = { promotion_name: image.alt };
 
             return (
               <Slider.Item
                 index={index}
-                class="carousel-item w-full max-w-[1312px]"
+                class="carousel-item w-11/12 lg:w-full max-w-[1312px]"
               >
                 <BannerItem
                   image={image}

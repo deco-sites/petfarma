@@ -131,7 +131,7 @@ function Dots({ images, interval = 0 }: Props) {
 function Buttons() {
   return (
     <>
-      <div class="absolute top-1/2 bottom-1/2 -left-7 flex items-center justify-center z-10 col-start-1">
+      <div class="absolute top-1/2 bottom-1/2 left-[5%] items-center justify-center z-10 col-start-1 lg:flex hidden">
         <Slider.PrevButton class="btn btn-circle bg-[#fcf7f7]">
           <Icon
             class="text-black"
@@ -141,7 +141,7 @@ function Buttons() {
           />
         </Slider.PrevButton>
       </div>
-      <div class="absolute top-1/2 bottom-1/2 -right-7 flex items-center justify-center z-10 col-start-3">
+      <div class="absolute top-1/2 bottom-1/2 right-[4%] lg:flex items-center justify-center z-10 col-start-3 hidden">
         <Slider.NextButton class="btn btn-circle bg-[#fcf7f7]">
           <Icon
             class="text-black"

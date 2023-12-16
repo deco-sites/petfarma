@@ -92,7 +92,7 @@ function CartItem(
           <span class="font-bold block md:hidden text-black">
             {name.length <= 30 ? name : `${name.slice(0, 30)}...`}
           </span>
-          <span class="text-lg font-bold text-primary">
+          <span class="text-lg font-bold text-primary md:hidden">
             {isGift ? "Grátis" : formatPrice(sale, currency, locale)}
           </span>
         </div>
@@ -142,6 +142,7 @@ function CartItem(
           <span class="text-lg font-bold text-primary hidden md:block">
             {isGift ? "Grátis" : formatPrice(sale, currency, locale)}
           </span>
+
           {
             /* <span class="line-through text-base-300 text-sm">
             {formatPrice(list, currency, locale)}

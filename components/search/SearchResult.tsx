@@ -89,14 +89,15 @@ function Result({
               title={category?.title}
             />
             <Flags
-              flags={category.flags?.flags}
-              title={category.flags?.title}
+              flags={category?.flags?.flags}
+              title={category?.flags?.title}
             />
             <SearchControls
               sortOptions={sortOptions}
               filters={filters}
               pageInfo={pageInfo}
               displayFilter={layout?.variant === "drawer"}
+              productsInPage={products.length}
             />
             <div class="w-full h-[1px] bg-black bg-opacity-10" />
             <div class="flex-grow" id={id}>
@@ -136,7 +137,7 @@ function Result({
 }
 
 function SearchResult({ page, ...props }: Props) {
-  if (!page) {
+  if (!page || page.products.length === 0) {
     return <NotFound />;
   }
 

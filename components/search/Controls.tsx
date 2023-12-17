@@ -11,10 +11,11 @@ export type Props =
   & Pick<ProductListingPage, "filters" | "pageInfo" | "sortOptions">
   & {
     displayFilter?: boolean;
+    productsInPage: number;
   };
 
 function SearchControls(
-  { filters, pageInfo, displayFilter, sortOptions }: Props,
+  { filters, pageInfo, displayFilter, sortOptions, productsInPage }: Props,
 ) {
   const open = useSignal(false);
 
@@ -47,7 +48,7 @@ function SearchControls(
     >
       <div class="flex flex-col justify-between items-start lg:items-center gap-4 lg:flex-row lg:h-[53px]">
         <span class="font-semibold text-black text-opacity-60 text-[14px]">
-          {pageInfo.records} produtos encontrados
+          {pageInfo.records ?? productsInPage} produtos encontrados
         </span>
         <div class="flex flex-row items-center justify-between lg:gap-4 lg:border-none w-full lg:w-[300px]">
           <Button

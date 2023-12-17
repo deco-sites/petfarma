@@ -11,6 +11,13 @@ const Iframe = ({ src }: Props) => {
     const handleResize = () => {
       const iframe = iframeRef.current;
       if (iframe) {
+        if (
+          iframeRef.current?.contentWindow?.document.location.href !==
+          src
+        ) {
+          window.location.href = iframeRef.current.contentWindow!.document
+            .location.href;
+        }
         iframe.style.height = `${
           iframe.contentWindow!.document.documentElement.scrollHeight
         }px`;

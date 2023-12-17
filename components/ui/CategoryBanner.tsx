@@ -1,99 +1,158 @@
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import type { SectionProps } from "deco/types.ts";
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
+
+export interface Flags {
+  title?: string;
+  flags?: {
+    image: ImageWidget;
+    width: number;
+    height: number;
+    alt: string;
+    text: string;
+    url: string;
+  }[];
+}
 
 /**
  * @titleBy matcher
  */
-export interface Banner {
+export interface Category {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
   matcher: string;
   /** @description text to be rendered on top of the image */
   title?: string;
-  /** @description text to be rendered on top of the image */
-  subtitle?: string;
+  /**
+   * @format textarea
+   * @format html
+   * @description text to be rendered on top of the image */
+  shortText?: string;
+  /**
+   * @format textarea
+   * @format html
+   * @description text to be rendered on top of the image */
+  longText?: string;
+  flags: Flags;
   image: {
     /** @description Image for big screens */
-    desktop: ImageWidget;
+    desktop?: {
+      url: ImageWidget;
+      width: number;
+      height: number;
+    };
     /** @description Image for small screens */
-    mobile: ImageWidget;
+    mobile?: {
+      url: ImageWidget;
+      width: number;
+      height: number;
+    };
     /** @description image alt text */
     alt?: string;
+    isRender?: boolean;
   };
 }
 
-const DEFAULT_PROPS = {
-  banners: [
-    {
-      image: {
-        mobile:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/91102b71-4832-486a-b683-5f7b06f649af",
-        desktop:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ec597b6a-dcf1-48ca-a99d-95b3c6304f96",
-        alt: "a",
-      },
-      title: "Woman",
-      matcher: "/*",
-      subtitle: "As",
-    },
-  ],
-};
-
-function Banner(props: SectionProps<ReturnType<typeof loader>>) {
+function Banner(
+  props: { banner: { title?: string; image?: Category["image"] } },
+) {
   const { banner } = props;
 
   if (!banner) {
     return null;
   }
 
-  const { title, subtitle, image } = banner;
+  const { title, image } = banner;
 
   return (
-    <div class="grid grid-cols-1 grid-rows-1">
-      <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
-        <Source
-          src={image.mobile}
-          width={360}
-          height={120}
-          media="(max-width: 767px)"
-        />
-        <Source
-          src={image.desktop}
-          width={1440}
-          height={200}
-          media="(min-width: 767px)"
-        />
-        <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
-      </Picture>
+    <div>
+      {image?.isRender && image?.mobile && image?.desktop && (
+        <Picture preload>
+          <Source
+            src={image.mobile.url}
+            width={image.mobile.width}
+            height={image.mobile.height}
+            media="(max-width: 767px)"
+          />
+          <Source
+            src={image.desktop.url}
+            width={image.desktop.width}
+            height={image.desktop.height}
+            media="(min-width: 767px)"
+          />
+          <img
+            class="w-full"
+            src={image.desktop.url}
+            alt={image.alt ?? title}
+          />
+        </Picture>
+      )}
+    </div>
+  );
+}
 
-      <div class="container flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
-        <h1>
-          <span class="text-5xl font-medium text-base-100">
-            {title}
-          </span>
-        </h1>
-        <h2>
-          <span class="text-xl font-medium text-base-100">
-            {subtitle}
-          </span>
-        </h2>
+export function ShortText(
+  { shortText, title }: {
+    shortText?: string;
+    title?: string;
+  },
+) {
+  if (!shortText || !title) {
+    return null;
+  }
+  const divider = <div class="w-full h-[1px] bg-black bg-opacity-10 gap-4" />;
+  return (
+    <div class="flex flex-col w-full mx-auto gap-4">
+      <h1 class="font-semibold text-[16px]">{title}</h1>
+      <>{divider}</>
+      <div dangerouslySetInnerHTML={{ __html: shortText }} />
+      <a
+        class="flex justify-center items-center uppercase font-bold bg-transparent text-primary border border-primary rounded-lg w-[140px] h-[38px]"
+        href="#longText"
+      >
+        saiba MAIS +
+      </a>
+    </div>
+  );
+}
+
+export function Flags({ title, flags }: Flags) {
+  if (!title || !flags) {
+    return null;
+  }
+
+  const divider = <div class="w-full h-[1px] bg-black bg-opacity-10 gap-4" />;
+  return (
+    <div class="flex flex-col w-full mx-auto gap-4">
+      <h2 class="font-semibold text-[16px]">{title}</h2>
+      <>{divider}</>
+      <div class="flex flex-wrap gap-4 w-full">
+        {flags.map(({ image, alt, text, url, width, height }) => (
+          <a
+            href={url}
+            class="flex justify-center items-center gap-4 bg-[#0F9B3E] bg-opacity-10 w-[161px] h-[36px] rounded-lg text-primary"
+          >
+            <Image src={image} alt={alt} width={width} height={height} />
+            {text}
+          </a>
+        ))}
       </div>
     </div>
   );
 }
 
-export interface Props {
-  banners?: Banner[];
-}
+export function LongText({ longText }: { longText?: string }) {
+  if (!longText) {
+    return null;
+  }
 
-export const loader = (props: Props, req: Request) => {
-  const { banners } = { ...DEFAULT_PROPS, ...props };
-
-  const banner = banners.find(({ matcher }) =>
-    new URLPattern({ pathname: matcher }).test(req.url)
+  return (
+    <div
+      class="bg-white flex flex-col w-11/12 max-w-[1300px] mx-auto p-4 rounded-lg"
+      id="longText"
+    >
+      <div dangerouslySetInnerHTML={{ __html: longText }} />
+    </div>
   );
-
-  return { banner };
-};
+}
 
 export default Banner;

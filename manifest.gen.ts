@@ -56,7 +56,6 @@ import * as $$$$$$48 from "./sections/Images/Carousel.tsx";
 import * as $$$$$$49 from "./sections/Images/ImageGallery.tsx";
 import * as $$$$$$50 from "./sections/Images/BannerGrid.tsx";
 import * as $$$$$$51 from "./sections/Category/CategoryList.tsx";
-import * as $$$$$$52 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
@@ -66,7 +65,6 @@ const manifest = {
     "deco-sites/petfarma/loaders/List/Sections.tsx": $$$0,
   },
   "sections": {
-    "deco-sites/petfarma/sections/Category/CategoryBanner.tsx": $$$$$$52,
     "deco-sites/petfarma/sections/Category/CategoryList.tsx": $$$$$$51,
     "deco-sites/petfarma/sections/Content/Benefits.tsx": $$$$$$38,
     "deco-sites/petfarma/sections/Content/Faq.tsx": $$$$$$37,

@@ -13,7 +13,7 @@ const Iframe = ({ src }: Props) => {
       if (iframe) {
         if (
           iframeRef.current?.contentWindow?.document.location.href !==
-          src
+            src
         ) {
           window.location.href = iframeRef.current.contentWindow!.document
             .location.href;

@@ -37,7 +37,7 @@ const Aside = (
     logo?: { src: ImageWidget; alt: string };
   },
 ) => (
-  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y w-[100vw] max-w-[425px]">
+  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-auto min-h-[100vh] divide-y w-[100vw] max-w-[425px]">
     <div class="flex justify-between items-center p-4">
       {chevronClick && (
         <Button
@@ -86,7 +86,7 @@ const AsideCart = (
     logo?: { src: ImageWidget; alt: string };
   },
 ) => (
-  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y w-[100vw] max-w-[425px]">
+  <div class="bg-base-100 grid grid-rows-[auto_1fr] h-auto min-h-[100vh] divide-y w-[100vw] max-w-[425px]">
     <div class="flex justify-start items-center p-4 gap-2">
       {onClose && (
         <Button

@@ -6,6 +6,8 @@ import Alert from "./Alert.tsx";
 import { Props as AlertProps } from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
+import { getCookies } from "std/http/cookie.ts";
+import { AppContext } from "apps/vnda/mod.ts";
 
 export interface NavItem {
   label: string;
@@ -34,10 +36,24 @@ export interface Props {
 
   // quickSearchItems?: QuickSearchProps;
 
-  paths: { loginHref: string; helpHref: string };
+  paths: { loginHref: string; loggedHref: string; helpHref: string };
 
   /** @title Logo */
   logo?: { src: ImageWidget; alt: string };
+}
+
+export function loader(props: Props, req: Request, _ctx: AppContext) {
+  const cookies = getCookies(req.headers);
+
+  const cookie = cookies["client_id"];
+
+  return {
+    ...props,
+    paths: {
+      ...props.paths,
+      loginHref: cookie ? props.paths.loggedHref : props.paths.loginHref,
+    },
+  };
 }
 
 function Header({

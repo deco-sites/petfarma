@@ -1,4 +1,5 @@
 import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 
 export type ISection = {
   title: string;
@@ -32,6 +33,8 @@ export interface Props {
     description: string;
     images: {
       image: LiveImage;
+      width: number;
+      height: number;
       alt: string;
     }[];
   };
@@ -41,7 +44,7 @@ function EmbellezeFaq(
   { section, social, payments, titleColor, footerItens }: Props,
 ) {
   return (
-    <footer class="flex-wrap flex justify-between m-auto md:w-85 w-11/12 max-w-[1300px] flex-col md:flex-row py-[42px]">
+    <footer class="flex flex-col flex-wrap justify-between m-auto w-11/12 max-w-[1300px] md:flex-row py-[42px]">
       {section?.map(({ title, items }: ISection) => (
         <section class="flex flex-col my-4 mr-4">
           <h4
@@ -69,12 +72,12 @@ function EmbellezeFaq(
             <div class="flex flex-wrap flex-row">
               {social?.items?.map(({ href, image, description }) => (
                 <a class="mt-2 mr-2" href={href}>
-                  <img
+                  <Image
                     class="rounded-full bg-slate-200 flex align-middle justify-center"
                     src={image}
                     alt={description}
-                    width="40px"
-                    height="40px"
+                    width={40}
+                    height={40}
                   />
                 </a>
               ))}
@@ -91,28 +94,28 @@ function EmbellezeFaq(
             </footer>
             <div class="flex flex-wrap flex-row gap-4">
               {payments?.items?.map(({ image, description }) => (
-                <img
+                <Image
                   class="rounded-lg flex align-middle justify-center"
                   src={image}
                   alt={description}
-                  width="50px"
-                  height="30px"
+                  width={50}
+                  height={30}
                 />
               ))}
             </div>
           </section>
         )}
       </section>
-      <div class="flex justify-between flex-wrap bg-white gap-4 w-full">
+      <div class="flex justify-between items-center flex-wrap bg-white gap-4">
         <span>{footerItens.description}</span>
         <div class="flex justify-start gap-4 flex-wrap">
-          {footerItens.images.map(({ image, alt }) => (
-            <img
+          {footerItens.images.map(({ image, alt, width, height }) => (
+            <Image
               class="rounded-lg flex align-middle justify-center"
               src={image}
               alt={alt}
-              width="66px"
-              height="50px"
+              width={width}
+              height={height}
             />
           ))}
         </div>

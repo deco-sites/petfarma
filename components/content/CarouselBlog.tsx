@@ -59,7 +59,7 @@ function Section(
         {title}
       </h2>
       <div
-        class="text-[12px] font-normal overflow-hidden mb-2"
+        class="text-[12px] font-normal mb-2"
         dangerouslySetInnerHTML={{ __html: description ?? "" }}
       />
       <button class="bg-[#0F9B3E] bg-opacity-10 text-[#0F9B3E] uppercase rounded-lg w-full h-[34px]">

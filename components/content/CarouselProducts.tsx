@@ -78,10 +78,25 @@ function Carousel(
                     ? "text-white"
                     : "bg-opacity-10 text-[#0F9B3E]"
                 } `}
+                disabled={index === sectionIndex}
                 {...usePartialSection({ props: { sectionIndex: index } })}
               >
-                <Icon id={icon} width={26} height={20} />
-                {title}
+                <input
+                  type="checkbox"
+                  class="fixed hidden peer"
+                  id={`${title}1`}
+                  checked={index === sectionIndex}
+                />
+                <label
+                  htmlFor={`${title}1`}
+                  class={`${
+                    index !== sectionIndex &&
+                    "peer-checked:loading peer-checked:loading-spinner"
+                  } cursor-pointer w-full h-full flex justify-center items-center gap-4`}
+                >
+                  <Icon id={icon} width={26} height={20} />
+                  {title}
+                </label>
               </button>
             ))}
         </div>
@@ -114,10 +129,25 @@ function Carousel(
                   ? "text-white"
                   : "bg-opacity-10 text-[#0F9B3E]"
               } `}
+              disabled={index === sectionIndex}
               {...usePartialSection({ props: { sectionIndex: index } })}
             >
-              <Icon id={icon} width={26} height={20} />
-              {title}
+              <input
+                type="checkbox"
+                class="fixed hidden peer"
+                id={title}
+                checked={index === sectionIndex}
+              />
+              <label
+                htmlFor={title}
+                class={`${
+                  index !== sectionIndex &&
+                  "peer-checked:loading peer-checked:loading-spinner"
+                } cursor-pointer w-full h-full flex justify-center items-center gap-4`}
+              >
+                <Icon id={icon} width={26} height={20} />
+                {title}
+              </label>
             </button>
           ))}
       </div>

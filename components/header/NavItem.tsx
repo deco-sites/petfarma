@@ -7,13 +7,13 @@ function NavItem({ item, isLast }: { item: INavItem; isLast?: boolean }) {
   const image = item?.image;
 
   return (
-    <li class="group flex items-center">
-      <a href={href} class="pr-2 py-3">
+    <li class="group flex items-center gap-2">
+      <a href={href} class="py-3 text-center">
         <span
-          class={`text-sm py-2 uppercase rounded-md ${
+          class={`py-2 text-[14px] uppercase rounded-md ${
             isLast
               ? "bg-[#C82926] text-white px-4"
-              : "hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E]"
+              : "hover:bg-[#0F9B3E1A] hover:text-[#0F9B3E] px-2"
           }`}
         >
           {label}
@@ -28,7 +28,7 @@ function NavItem({ item, isLast }: { item: INavItem; isLast?: boolean }) {
           >
             <div class="flex w-full max-w-[1440px] px-16 py-8 justify-between">
               <ul
-                class="items-start gap-4 max-h-[353px] grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full"
+                class="items-start gap-4 max-h-[353px] grid md:grid-cols-3 md:gap-4 w-full"
                 style={{ listStyle: "square" }}
               >
                 {children.map((node) => (

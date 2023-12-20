@@ -62,7 +62,7 @@ export async function loader(
   };
 
   return {
-    data: data.slice(0, layout?.numberOfPosts ?? 12),
+    data: data?.slice(0, layout?.numberOfPosts ?? 12),
     title,
     instaUser,
     layout,

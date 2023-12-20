@@ -136,6 +136,7 @@ export default function instagramPosts(
                     width={350}
                     height={350}
                     loading="lazy"
+                    decoding="async"
                   />
                 )
                 : (

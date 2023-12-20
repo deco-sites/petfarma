@@ -51,6 +51,8 @@ function Section(
         class="rounded-lg mb-2"
         width={384}
         height={193}
+        loading="lazy"
+        decoding="async"
       />
       <h2
         class="text-base uppercase text-start font-semibold mb-2"

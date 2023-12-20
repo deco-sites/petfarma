@@ -58,6 +58,8 @@ function Images(
                   height={280}
                   src={image}
                   alt={alt}
+                  loading="lazy"
+                  decoding="async"
                   class="object-fill h-[320px] rounded-2xl w-full"
                 />
                 <SendEventOnClick
@@ -88,6 +90,8 @@ function Images(
                   height={320}
                   src={image}
                   alt={alt}
+                  loading="lazy"
+                  decoding="async"
                   class="rounded-lg w-full lg:w-[421px] h-[320px]"
                 />
                 <SendEventOnClick

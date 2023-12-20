@@ -78,6 +78,8 @@ function EmbellezeFaq(
                     alt={description}
                     width={40}
                     height={40}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </a>
               ))}
@@ -100,6 +102,8 @@ function EmbellezeFaq(
                   alt={description}
                   width={50}
                   height={30}
+                  loading="lazy"
+                  decoding="async"
                 />
               ))}
             </div>
@@ -116,6 +120,8 @@ function EmbellezeFaq(
               alt={alt}
               width={width}
               height={height}
+              loading="lazy"
+              decoding="async"
             />
           ))}
         </div>

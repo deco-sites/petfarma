@@ -123,7 +123,9 @@ export default function ProductCard(
             <figure class="flex object-contain max-w-[200px] w-auto h-[260px] items-center justify-center mx-auto">
               <Image
                 class="h-[200px] object-contain"
-                src={front.url!}
+                src={front?.url
+                  ? front.url
+                  : "https://via.placeholder.com/260x260"}
                 alt={name}
                 loading="lazy"
                 decoding="async"

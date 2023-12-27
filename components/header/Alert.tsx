@@ -15,6 +15,11 @@ export interface Banner {
 
 export interface Props {
   visible?: boolean;
+  /**
+   * @format color
+   * @default #FFFFF
+   */
+  alertColor?: string;
   image: Banner;
 }
 
@@ -22,6 +27,7 @@ function Alert(
   {
     visible = true,
     image,
+    alertColor,
   }: Props,
 ) {
   const id = useId();
@@ -38,7 +44,10 @@ function Alert(
   } = image;
 
   return (
-    <div class=" flex justify-center carousel carousel-center w-screen sm:gap-6 h-[40px] mx-auto">
+    <div
+      class="flex justify-center items-end carousel carousel-center w-screen sm:gap-6 h-[40px] mx-auto"
+      style={{ backgroundColor: alertColor }}
+    >
       <a
         id={id}
         href={href ?? "#"}
@@ -61,7 +70,7 @@ function Alert(
             height={40}
           />
           <img
-            class="object-fill w-full h-full"
+            class="object-contain w-full h-full"
             loading={"eager"}
             src={desktop}
             alt={alt}

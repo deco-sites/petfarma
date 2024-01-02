@@ -25,7 +25,8 @@ type CustomFilterToggleValue = FilterToggleValue & {
 function ValueItem(
   { url, selected, label, quantity, filterLabel }: CustomFilterToggleValue,
 ) {
-  const { filtersUrl, updateQueryParam, selectedFilters } = useUI();
+  const { filtersUrl, updateQueryParam, getFiltersByUrl, selectedFilters } =
+    useUI();
   const checkboxRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     filtersUrl.value = window.location.href;
@@ -38,7 +39,7 @@ function ValueItem(
       if (!isDuplicate) {
         selectedFilters.value = [
           ...selectedFilters.value,
-          { label, filterLabel, ref: checkboxRef },
+          { label, filterLabel, ref: checkboxRef, url },
         ];
       }
     }
@@ -50,7 +51,7 @@ function ValueItem(
         const isChecked = updateQueryParam(
           filtersUrl.value,
           filterLabel,
-          label.toLowerCase(),
+          getFiltersByUrl(url),
         );
         checkboxRef?.current?.setAttribute(
           "aria-checked",
@@ -65,6 +66,7 @@ function ValueItem(
             label,
             filterLabel,
             ref: checkboxRef,
+            url,
           }];
         }
       }}
@@ -159,7 +161,8 @@ function FilterCollapse({ filter }: { filter: FilterToggle }) {
 }
 
 function Filters({ filters }: Props) {
-  const { filtersUrl, updateQueryParam, selectedFilters } = useUI();
+  const { filtersUrl, updateQueryParam, getFiltersByUrl, selectedFilters } =
+    useUI();
   return (
     <>
       {selectedFilters.value.length > 0 &&
@@ -170,14 +173,14 @@ function Filters({ filters }: Props) {
               <span class="text-[14px]">Selecionados:</span>
             </div>
             <div class="flex flex-col gap-2 pt-4">
-              {selectedFilters.value.map(({ label, filterLabel, ref }) => (
+              {selectedFilters.value.map(({ label, filterLabel, ref, url }) => (
                 <button
                   class="flex flex-wrap gap-4 font-bold items-center"
                   onClick={() => {
                     const isChecked = updateQueryParam(
                       filtersUrl.value,
                       filterLabel,
-                      label.toLowerCase(),
+                      getFiltersByUrl(url),
                     );
                     ref?.current?.setAttribute(
                       "aria-checked",
@@ -199,11 +202,11 @@ function Filters({ filters }: Props) {
                 class="flex justify-center items-center bg-[#C82926] bg-opacity-10 text-black h-[35px] rounded-lg uppercase"
                 onClick={() => {
                   selectedFilters.value.forEach(
-                    ({ label, filterLabel, ref }) => {
+                    ({ label, filterLabel, ref, url }) => {
                       const isChecked = updateQueryParam(
                         filtersUrl.value,
                         filterLabel,
-                        label.toLowerCase(),
+                        getFiltersByUrl(url),
                       );
                       ref?.current?.setAttribute(
                         "aria-checked",

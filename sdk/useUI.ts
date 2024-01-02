@@ -53,8 +53,34 @@ function updateQueryParam(
   return isChecked;
 }
 const selectedFilters = signal<
-  { label: string; filterLabel: string; ref: React.RefObject<HTMLDivElement> }[]
+  {
+    label: string;
+    filterLabel: string;
+    url: string;
+    ref: React.RefObject<HTMLDivElement>;
+  }[]
 >([]);
+
+const getFiltersByUrl = (url: string) => {
+  const windowSearchParams = new URL(window.location.href).searchParams;
+  const filterSearchParams = new URL(url).searchParams;
+  const windowParams = Array.from(windowSearchParams);
+  const searchParams = Array.from(filterSearchParams);
+
+  if (windowParams.length > searchParams.length) {
+    const [_key, label] = windowParams.find(([key, value]) =>
+      !searchParams.some(([k, v]) => k === key && v === value)
+    ) as [string, string];
+
+    console.log(label, windowParams, searchParams, url);
+    return label;
+  }
+
+  const lastParam = searchParams.pop() as [string, string];
+  const [_lastKey, lastValue] = lastParam;
+
+  return lastValue;
+};
 
 const state = {
   displayCart,
@@ -67,6 +93,7 @@ const state = {
   filtersUrl,
   selectedFilters,
   updateQueryParam,
+  getFiltersByUrl,
 };
 
 // Keyboard event listeners

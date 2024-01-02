@@ -39,7 +39,7 @@ function SearchControls(
                 <span class="font-medium text-2xl">Filtrar</span>
               </h2>
             </div>
-            <div class="flex-grow overflow-auto  w-11/12 mx-auto">
+            <div class="flex-grow overflow-auto  w-11/12 mx-auto mb-[75px]">
               <Filters filters={filters} />
             </div>
           </div>

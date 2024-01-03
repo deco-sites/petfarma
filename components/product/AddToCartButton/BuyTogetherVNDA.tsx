@@ -15,12 +15,16 @@ function AddToCartButton(
   const { productsBuyTogether } = useUI();
   const { addItem } = useCart();
   const onAddItem = async () => {
-    await productsBuyTogether.value.forEach(async ({ productID }) =>
-      await addItem({
-        quantity: 1,
-        itemId: productID,
-      })
-    );
+    try {
+      for (const { productID } of productsBuyTogether.value) {
+        await addItem({
+          quantity: 1,
+          itemId: productID,
+        });
+      }
+    } catch (error) {
+      console.error("Ocorreu um erro ao adicionar itens:", error);
+    }
   };
 
   return (

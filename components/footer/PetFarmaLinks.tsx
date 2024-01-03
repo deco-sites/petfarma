@@ -6,6 +6,7 @@ export type ISection = {
   items?: Array<{
     label: string;
     href?: string;
+    isBlank?: boolean;
   }>;
 };
 
@@ -13,6 +14,7 @@ export type SocialMedia = {
   image: LiveImage;
   href: string;
   description?: string;
+  isBlank?: boolean;
 };
 
 export interface Props {
@@ -54,8 +56,15 @@ function EmbellezeFaq(
             {title}
           </h4>
           <>
-            {items?.map(({ label, href }) => (
-              <a class="mt-2" href={href}>{label}</a>
+            {items?.map(({ label, href, isBlank }) => (
+              <a
+                class="mt-2"
+                href={href}
+                target={isBlank ? "_blank" : "_self"}
+                rel={isBlank ? "noopener noreferrer" : ""}
+              >
+                {label}
+              </a>
             ))}
           </>
         </section>
@@ -70,8 +79,13 @@ function EmbellezeFaq(
               {social?.title}
             </footer>
             <div class="flex flex-wrap flex-row">
-              {social?.items?.map(({ href, image, description }) => (
-                <a class="mt-2 mr-2" href={href}>
+              {social?.items?.map(({ href, image, description, isBlank }) => (
+                <a
+                  class="mt-2 mr-2"
+                  href={href}
+                  target={isBlank ? "_blank" : "_self"}
+                  rel={isBlank ? "noopener noreferrer" : ""}
+                >
                   <Image
                     class="rounded-full bg-slate-200 flex align-middle justify-center"
                     src={image}

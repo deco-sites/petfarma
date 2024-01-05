@@ -8,6 +8,7 @@ import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
 import { getCookies } from "std/http/cookie.ts";
 import { AppContext } from "apps/vnda/mod.ts";
+import ScrollableContainer from "$store/components/ui/ScrollableContainer.tsx";
 
 export interface NavItem {
   label: string;
@@ -79,7 +80,9 @@ function Header({
           platform={platform}
         >
           <div class="bg-base-100 fixed lg:w-full z-50 border-b">
+          <ScrollableContainer>
             <Alert {...alerts} />
+          </ScrollableContainer>
             <Navbar
               items={items}
               searchbar={searchbar && { ...searchbar, platform }}

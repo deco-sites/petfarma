@@ -26,12 +26,14 @@ import * as $$19 from "./islands/Petfarma/BuyTogetherVNDA.tsx";
 import * as $$20 from "./islands/Petfarma/CheckBox.tsx";
 import * as $$21 from "./islands/Petfarma/Filters.tsx";
 import * as $$22 from "./islands/Petfarma/Iframe.tsx";
-import * as $$23 from "./islands/ProductImageZoom.tsx";
-import * as $$24 from "./islands/SearchControls.tsx";
-import * as $$25 from "./islands/ShippingSimulation.tsx";
-import * as $$26 from "./islands/SliderJS.tsx";
-import * as $$27 from "./islands/Video.tsx";
-import * as $$28 from "./islands/WishlistButton.tsx";
+import * as $$23 from "./islands/Petfarma/ScrollableContainer.tsx";
+import * as $$24 from "./islands/Petfarma/ScrollableNavItem.tsx";
+import * as $$25 from "./islands/ProductImageZoom.tsx";
+import * as $$26 from "./islands/SearchControls.tsx";
+import * as $$27 from "./islands/ShippingSimulation.tsx";
+import * as $$28 from "./islands/SliderJS.tsx";
+import * as $$29 from "./islands/Video.tsx";
+import * as $$30 from "./islands/WishlistButton.tsx";
 
 const manifest = {
   routes: {
@@ -61,12 +63,14 @@ const manifest = {
     "./islands/Petfarma/CheckBox.tsx": $$20,
     "./islands/Petfarma/Filters.tsx": $$21,
     "./islands/Petfarma/Iframe.tsx": $$22,
-    "./islands/ProductImageZoom.tsx": $$23,
-    "./islands/SearchControls.tsx": $$24,
-    "./islands/ShippingSimulation.tsx": $$25,
-    "./islands/SliderJS.tsx": $$26,
-    "./islands/Video.tsx": $$27,
-    "./islands/WishlistButton.tsx": $$28,
+    "./islands/Petfarma/ScrollableContainer.tsx": $$23,
+    "./islands/Petfarma/ScrollableNavItem.tsx": $$24,
+    "./islands/ProductImageZoom.tsx": $$25,
+    "./islands/SearchControls.tsx": $$26,
+    "./islands/ShippingSimulation.tsx": $$27,
+    "./islands/SliderJS.tsx": $$28,
+    "./islands/Video.tsx": $$29,
+    "./islands/WishlistButton.tsx": $$30,
   },
   baseUrl: import.meta.url,
 };

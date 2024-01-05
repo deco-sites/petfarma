@@ -9,6 +9,7 @@ import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
 import type { NavItem as INavItem } from "./Header.tsx";
 import { navbarHeight } from "./constants.ts";
+import ScrollableContainer from "$store/components/ui/ScrollableContainer.tsx";
 
 function Navbar({ items, searchbar, logo, paths }: {
   items: INavItem[];
@@ -49,7 +50,7 @@ function Navbar({ items, searchbar, logo, paths }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden lg:flex flex-col">
+      <div class="hidden lg:flex flex-col group/scrollable">
         <div class="flex flex-row justify-between items-center border-b border-base-200 md:border-0 w-11/12 max-w-[1300px] jutify-center py-4 mx-auto gap-4">
           <div class="flex-none">
             {logo && (
@@ -96,14 +97,16 @@ function Navbar({ items, searchbar, logo, paths }: {
             {platform === "vnda" && <CartButtonVDNA />}
           </div>
         </div>
-        <ul class="flex-auto flex justify-between w-11/12 max-w-[1300px] h-[40px] pb-[6px] mx-auto">
-          {items.map((item, index) => (
-            <NavItem
-              item={item}
-              isLast={index === (items.length - 1) ? true : false}
-            />
-          ))}
-        </ul>
+        <ScrollableContainer>
+          <ul class="flex-auto flex justify-between w-11/12 max-w-[1300px] h-[40px] pb-[6px] mx-auto">
+            {items.map((item, index) => (
+              <NavItem
+                item={item}
+                isLast={index === (items.length - 1) ? true : false}
+              />
+            ))}
+          </ul>
+        </ScrollableContainer>
       </div>
     </>
   );

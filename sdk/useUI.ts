@@ -5,6 +5,7 @@
 import { Product } from "apps/commerce/types.ts";
 import { signal } from "@preact/signals";
 
+const isScrollActive = signal(false);
 const displayCart = signal(false);
 const displayMenu = signal(false);
 const displaySearchPopup = signal(false);
@@ -83,6 +84,7 @@ const getFiltersByUrl = (url: string) => {
 };
 
 const state = {
+  isScrollActive,
   displayCart,
   displayMenu,
   displaySearchPopup,
